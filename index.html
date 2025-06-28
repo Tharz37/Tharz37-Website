@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tharz_37</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #00ffff;
+      --btn-bg: #2b2b2b;
+      --btn-hover: #111;
+      --contact-btn: #ffffff;
+      --contact-hover: #aaaaaa;
+    }
+    #matrixRain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      background: var(--btn-bg);
+      color: var(--text);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 5px;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+    }
+
+    .contact {
+      background-color: var(--contact-btn);
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .contact:hover {
+      background-color: var(--contact-hover);
+    }
+
+    .NavBar {
+      background-color: var(--bg);
+      padding: 12px;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-family: "Calibri New", sans-serif;
+      color: var(--text);
+    }
+
+    .NavBar table {
+      width: 100%;
+    }
+
+    .NavBar td {
+      vertical-align: middle;
+    }
+    .LandingPage {
+      margin: 8px auto;
+      background-color: #101010cc;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .Language, .Certificates {
+      margin: 8px auto;
+      background-color: #101010;
+      padding: 25px;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+   
+    .about, .Skills, .ShowcasePage {
+      margin: 8px auto;
+      background-color: #101010;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+
+    .skillgrid, .projectgrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 90px;
+      justify-content: center;
+    }
+    .certificate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding-top: 10px;
+    }
+
+   .cert-item {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    }
+
+   .cert-item:hover {
+    transform: scale(1.03);
+   }
+
+   .cert-item strong {
+    color: #ffffff;
+   }
+
+    .project-card {
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #e0e0e0;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .project-card h3 {
+      color: #00e5ff;
+      margin-top: 6px;
+    }
+
+    .bar {
+      width: 100%;
+      background: #333;
+      height: 6px;
+      border-radius: 3px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      background-color: #101010;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .about img {
+      width: 180px;
+      height: 180px;
+      border-radius: 10%;
+      object-fit: cover;
+      border: 1px solid #FFFFFF;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .button-link {
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .button-link:hover {
+      background-color: #000;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-top: 1px solid #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .about img {
+        align-self: center;
+        margin-top: 20px;
+      }
+      .skillgrid, .projectgrid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-card {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+    }
+  </style>
+</head>
+<body>
+<canvas id="matrixRain"></canvas>
+
+
+<!-- Navigation Bar -->
+<div class="NavBar">
+  <table>
+    <tr>
+      <td><strong>Tharz_37</strong></td>
+      <td align="right">
+        <a href="mailto:tharunoommenjacob@gmail.com">
+          <button class="contact">Contact</button>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- Landing Page -->
+<div class="LandingPage">
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+  <h1>Hi, I am Tharun Oommen Jacob</h1>
+  <h2>An Engineering Student, B.Tech in Robotics and Automation</h2>
+  <h3>CAD | PCB | WEB Designer</h3>
+  <div>
+    <button class="button-link" onclick="location.href='https://github.com/Tharz37'">Visit my GitHub</button><br><br>
+    <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1Exa7TG9dujg81IvsjG1pqNlB2LHqXAsk/view?usp=sharing'">View CV</button>
+  </div>
+<br></br>
+</div>
+
+<!-- About Section -->
+<div class="about">
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p>Hey! I’m Tharun Oommen Jacob, an engineering student from Saintgits College of Engineering, Kerala. I specialize in blending AI, Hardware, and design into intelligent products. Whether it's crafting intuitive UI or soldering circuits that talk, I find joy in building futuristic tools and learning through hands-on projects. I design complex mechanical parts, PCBs, and websites with purpose and life. From technical execution to creative design, I strive to bring every product to life with a balance of logic and emotion. 😎</p>
+  </div>
+  <img src="Tharun.jpg" alt="Tharun Jacob">
+</div>
+
+
+<!-- Skills -->
+<div class="Skills">
+  <h2>Major Skills</h2>
+  <div class="skillgrid">
+    <ul><h3>Mechanical ⭐⭐⭐⭐</h3><li>Fusion 360</li><li>Solid Edge</li><li>Ansys Mechanical</li></ul>
+    <ul><h3>Software ⭐⭐⭐</h3><li>Python</li><li>C, C++</li><li>OpenCV</li><li>AI Integration</li></ul>
+    <ul><h3>Electrical ⭐⭐</h3><li>EasyEDA</li></ul>
+    <ul><h3>Website ⭐⭐</h3><li>HTML</li><li>CSS</li><li>JS</li><li>Figma</li><li>WebFlow</li></ul>
+  </div>
+</div>
+
+<!-- Languages -->
+<div class="Language">
+<section id="language">
+  <h2>Languages</h2>
+  <div class="lang-skill"><label>English</label><div class="bar"><div class="bar-fill" style="width: 95%"></div></div></div>
+  <div class="lang-skill"><label>Malayalam</label><div class="bar"><div class="bar-fill" style="width: 100%"></div></div></div>
+  <div class="lang-skill"><label>Hindi</label><div class="bar"><div class="bar-fill" style="width: 70%"></div></div></div>
+</section>
+</div>
+
+<div class="Certificates">
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certificate">
+
+      <div class="cert-item">
+         <strong>Siemens</strong> - Introduction to Solid Edge <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/125BMhmx6P3uNDgAn4uHgUAfkvPE1KHN2/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>NPTEL</strong> - Introduction to IoT <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1r6la22OHBwrpwjDgQI2bJTf6Qrrnnbdx/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>IEDC@Saintgits</strong> - PCB Designing <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1Dklxb-k8MqfTfcgnAG49gojbohA7SWvz/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>IEDC@Saintgits</strong> - ROS <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/12uYJ-zS9N_1izidbtNuKErXZMSj3cooN/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>IEDC@Saintgits</strong> - SolidWorks <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1qG-KU44b6nZbYDnu4eRdEMDuGWDcFxZr/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>CODE@Saintgits</strong> - Fundamentals of Python Programming <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1na5kN5IutwdKCHcYPEcDuzijVsCEk843/view?usp=sharing'">View</button>
+      </div>
+
+      <div class="cert-item">
+         <strong>AGNIRVA</strong> - Agnirva Space Internship <br>
+        <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1hqUOrSeQDO-SRkgJe40Ks3DGVExBVYc4/view?usp=sharing'">View</button>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- Projects -->
+<div class="ShowcasePage">
+  <h2>Major Projects</h2>
+  <div class="projectgrid">
+    <div class="project-card" style="background-image: url('light follwer .jpg');">
+      <div class="overlay">
+        <h3>1. Light Following Bot</h3>
+        <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/light-following-bot'">View code on GitHub</button>
+      </div>
+    </div>
+
+    <div class="project-card" style="background-image: url('gesture home.png');">
+      <div class="overlay">
+        <h3>2. Gesture Controlled Home Automation</h3>
+        <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
+        <button class="button-link">View code on GitHub</button>
+      </div>
+    </div>
+
+    <div class="project-card" style="background-image: url('neurahome.png');">
+      <div class="overlay">
+        <h3>3. NeuraHome</h3>
+        <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/embedded-systems-home-automation'">View code on GitHub</button>
+      </div>
+    </div>
+
+    <div class="project-card" style="background-image: url('balancing bot pid.jpg');">
+      <div class="overlay">
+        <h3>4. Self Balancing Robot</h3>
+        <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
+        <button class="button-link">View code on GitHub</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Tharz_37. All Rights Reserved.
+</footer>
+
+<script>
+  const canvas = document.getElementById("matrixRain");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const characters = "0101010101$$++--==**@@##".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00FF00";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 60);
+
+  window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+</script>
+
+</body>
+</html>
