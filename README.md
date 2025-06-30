@@ -41,13 +41,15 @@ git clone https://github.com/Tharz37/Tharz37-Website.git
 cd Tharz37-Website
 ```
 
-# 3. Open index.html in your browser
-# (Double-click or use a Live Server extension in VS Code)
-🌐 Live Demo
+3. Open index.html in your browser
+(Double-click or use a Live Server extension in VS Code)
 
-🔗 Visit here: tharz37.github.io/Tharz37-Website
+## 🌐 Live Demo
 
-📬 Contact Me
+🔗 Visit here: https://tharz37.github.io/Tharz37-Website/
+
+## 📬 Contact Me
+
 🔗 LinkedIn: https://www.linkedin.com/in/tharun-oommen-jacob-009766292/
 
 📧 Email: tharunoommenjacob@gmail.com
