@@ -32,20 +32,23 @@ It reflects my journey as a **Robotics and Automation Engineering student** at S
 
 To run this website locally:
 
+1. Clone the repository
 ```bash
-# 1. Clone the repository
 git clone https://github.com/Tharz37/Tharz37-Website.git
-
-# 2. Navigate into the folder
+```
+ 2. Navigate into the folder
+```bash
 cd Tharz37-Website
+```
 
 # 3. Open index.html in your browser
 # (Double-click or use a Live Server extension in VS Code)
 🌐 Live Demo
+
 🔗 Visit here: tharz37.github.io/Tharz37-Website
 
 📬 Contact Me
-🔗 LinkedIn: Tharun Oommen Jacob
+🔗 LinkedIn: https://www.linkedin.com/in/tharun-oommen-jacob-009766292/
 
 📧 Email: tharunoommenjacob@gmail.com
 
