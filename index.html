@@ -123,12 +123,38 @@
     }
 
 
-    .skillgrid, .projectgrid {
+    .projectgrid {
       display: flex;
       flex-wrap: wrap;
       gap: 90px;
       justify-content: center;
     }
+
+    .skillgrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding-top: 10px;
+    }
+
+   .skill-item {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    }
+
+   .skill-item:hover {
+    transform: scale(1.03);
+   }
+
+   .skill-item strong {
+    color: #ffffff;
+   }
+
     .certificate {
     display: flex;
     flex-wrap: wrap;
@@ -323,10 +349,14 @@
 <div class="Skills">
   <h2>Major Skills</h2>
   <div class="skillgrid">
-    <ul><h3>Mechanical ⭐⭐⭐⭐</h3><li>Fusion 360</li><li>Solid Edge</li><li>Ansys Mechanical</li></ul>
-    <ul><h3>Software ⭐⭐⭐</h3><li>Python</li><li>C, C++</li><li>OpenCV</li><li>AI Integration</li></ul>
-    <ul><h3>Electrical ⭐⭐</h3><li>EasyEDA</li></ul>
-    <ul><h3>Website ⭐⭐</h3><li>HTML</li><li>CSS</li><li>JS</li><li>Figma</li><li>WebFlow</li></ul>
+    <div class="skill-item">
+    <ul><h3>Mechanical ⭐⭐⭐⭐</h3><li>Fusion 360</li><li>Solid Edge</li><li>Ansys Mechanical</li></ul></div>
+    <div class="skill-item">
+    <ul><h3>Software ⭐⭐⭐</h3><li>Python</li><li>C, C++</li><li>OpenCV</li><li>AI Integration</li></ul></div>
+    <div class="skill-item">
+    <ul><h3>Electrical ⭐⭐</h3><li>EasyEDA</li></ul></div>
+    <div class="skill-item">
+    <ul><h3>Website ⭐⭐</h3><li>HTML</li><li>CSS</li><li>JS</li><li>Figma</li><li>WebFlow</li></ul></div>
   </div>
 </div>
 
