@@ -157,6 +157,7 @@
     .project-card {
       background-size: cover;
       background-position: center;
+      transition: transform 0.2s;
       border-radius: 12px;
       overflow: hidden;
       width: 300px;
@@ -178,6 +179,10 @@
       flex-direction: column;
       justify-content: flex-end;
     }
+
+    .project-card:hover {
+    transform: scale(1.03);
+   }
 
     .project-card h3 {
       color: #00e5ff;
