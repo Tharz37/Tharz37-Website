@@ -54,3 +54,14 @@ cd Tharz37-Website
 
 📧 Email: tharunoommenjacob@gmail.com
 
+---
+
+## 📄 License
+
+This portfolio website is open-sourced under the [MIT License](./LICENSE).  
+Feel free to explore and learn from the code.  
+However, please do **not copy-paste and publish it as your own** without permission or significant changes.
+
+© 2025 Tharun Oommen Jacob. All rights reserved.
+
+
