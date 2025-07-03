@@ -105,6 +105,10 @@
     .NavBar {
       background-color: var(--bg);
       padding: 12px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
       border-top: 1px solid #555;
       border-bottom: 1px solid #555;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
@@ -112,7 +116,7 @@
       font-family: "Calibri New", sans-serif;
       color: var(--text);
     }
-
+   
     .NavBar table {
       width: 100%;
     }
@@ -121,11 +125,16 @@
       vertical-align: middle;
     }
 
-    .logo-img {
+    .logo {
   height: 60px;
-  width: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
   vertical-align: middle;
 }
+   .logo:hover {
+  transform: scale(1.1);  
+   }
 
     .LandingPage {
   min-height: 100vh; /* Takes full screen height */
@@ -383,10 +392,12 @@
   <table>
     <tr>
      <td>
-  <img src="white logo.svg" alt="THARZ-37 Logo" class="logo-img"onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">
+  <img src="white logo.svg" alt="THARZ-37 Logo" class="logo" />
+</a>
+
 </td>
 
-      <td align ="right">
+      <td align="right">
         <a href="mailto:tharunoommenjacob@gmail.com">
           <button class="contact">Contact</button>
         </a>
