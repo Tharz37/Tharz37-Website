@@ -121,12 +121,18 @@
       vertical-align: middle;
     }
     .LandingPage {
-      margin: 8px auto;
-      background-color: hsla(0, 0%, 6%, 0.466);
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
+  min-height: 100vh; /* Takes full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: left;     /* Horizontally left content */
+  background-color: #101010cc;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  text-align: left;
+}
+
 
     .Language, .Certificates {
       margin: 8px auto;
@@ -301,6 +307,25 @@
     }
 
  @media screen and (max-width: 768px) {
+  
+  .LandingPage {
+      margin: 8px auto;
+      padding-top: 100px;
+      background-color: hsla(0, 0%, 6%, 0.466);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .Language, .Certificates {
+      margin: 8px auto;
+      background-color: #101010;
+      padding: 25px;
+      text-align: left;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+  
   .about {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -358,10 +383,7 @@
 
 <!-- Landing Page -->
 <div class="LandingPage">
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+
   <h1>Hi, I am <strong>Tharun Oommen Jacob</strong></h1>
   <h2>An Engineering Student, B.Tech in Robotics and Automation</h2>
   <h3>CAD | PCB | WEB Designer</h3>
@@ -370,7 +392,7 @@
     <button class="button-link" onclick="location.href='https://www.linkedin.com/in/tharun-oommen-jacob-009766292/'"><strong>View my Linkedin</strong></button><br><br>
     <button class="button-link" onclick="location.href='https://drive.google.com/file/d/1Exa7TG9dujg81IvsjG1pqNlB2LHqXAsk/view?usp=sharing'"><strong>View my CV</strong></button>
   </div>
-<br></br>
+
 </div>
 
 <!-- About Section -->
