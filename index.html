@@ -120,13 +120,20 @@
     .NavBar td {
       vertical-align: middle;
     }
+
+    .logo-img {
+  height: 60px;
+  width: 60px;
+  vertical-align: middle;
+}
+
     .LandingPage {
   min-height: 100vh; /* Takes full screen height */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Vertically center content */
   align-items: left;     /* Horizontally left content */
-  background-color: #101010cc;
+  background-color: #1010109b;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
@@ -308,6 +315,10 @@
 
  @media screen and (max-width: 768px) {
   
+  .logo-img {
+  height: 40px;
+}
+
   .LandingPage {
       margin: 8px auto;
       padding-top: 100px;
@@ -371,7 +382,10 @@
 <div class="NavBar">
   <table>
     <tr>
-      <td><strong>Tharz_37</strong></td>
+     <td>
+  <img src="white logo.svg" alt="THARZ-37 Logo" class="logo-img"onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">
+</td>
+
       <td align ="right">
         <a href="mailto:tharunoommenjacob@gmail.com">
           <button class="contact">Contact</button>
