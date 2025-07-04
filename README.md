@@ -33,18 +33,23 @@ The site is responsive, clean, and optimized for **professional visibility**, **
 
 ## 📁 Project Structure
 
-Tharz37-Portfolio/
-├── assets/
-│ ├── images/ # Project thumbnails, profile pic, CAD screenshots
-│ ├── icons/ # Favicon, logos
-│ └── manifest/ # site.webmanifest (optional, for PWA)
-├── index.html # Main HTML file for the site
-├── LICENSE # MIT License
-├── README.md # You're reading it!
-├── googlexxxx.html # Google Search Console verification file
+```bash
+Tharz37-Website/
+├── index.html                  # Main webpage file (Landing, About, Skills, etc.)
+├── LICENSE                     # MIT License declaration
+├── README.md                   # You're reading it 😉
+├── google56657cc4f6fa9002.html # Google Search Console verification
+├── site.webmanifest            # (Optional) Web app manifest
+├── assets/                     # All static resources
+│   ├── images/                 # Project thumbnails, CAD previews, profile photo
+│   │   ├── balancing-bot.png
+│   │   ├── neurahome.png
+│   │   ├── ...
+│   ├── icons/                  # Logo (SVG), favicon
+│   │   ├── white-logo.svg
+│   │   └── favicon.ico
+```
 
-
----
 
 ## 📌 File Explanation
 
@@ -85,13 +90,13 @@ Or open in VS Code and use the Live Server extension
 ## 🧪 How to Modify for Yourself
 If someone forks/clones this repo, here’s what you’ll need to change:
 
-**index.html** - Replace name, about section, skills, certificates
+**index.html** 
+- Replace name, about section, skills, certificates
+- Update project image paths from /assets/images/
+- Update Google Drive/view links
 
-                 Update project image paths from /assets/images/
-
-                 Update Google Drive/view links
-
-**/assets/images/** - Add your own profile photo and project visuals
+**/assets/images/** 
+- Add your own profile photo and project visuals
 
 ## LICENSE (optional)
 
