@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Tharun Oommen Jacob</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #00ffff;
+      --card: #101010;
+      --btn: #222;
+      --btn-hover: #333;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #matrixRain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    .NavBar {
+      background-color: var(--bg);
+      padding: 12px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-family: "Calibri New", sans-serif;
+      color: var(--text);
+    }
+
+    .NavBar table {
+      width: 98%;
+    }
+
+    .NavBar td {
+      vertical-align: middle;
+    }
+
+    .NavBar h1 {
+      margin: 0;
+      font-size: 20px;
+      padding-left: 15px;
+    }
+
+    .ShowcasePage {
+      margin: 8px auto;
+      background-color: #101010cc;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .contact {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .contact:hover {
+      background-color: grey;
+    }    
+
+    .logo {
+      height: 50px;
+      width: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+   .logo:hover {
+      transform: scale(1.1);  
+    }
+
+    .nav-link {
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 8px 16px;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .projectgrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 90px;
+      justify-content: center;
+    }
+
+        .project-card {
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.2s;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .overlay {
+      background-color: rgba(0, 0, 0, 0.644);
+      color: #e0e0e0;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .project-card:hover {
+    transform: scale(1.03);
+   }
+
+    .project-card h3 {
+      color: #fff;
+      margin-top: 6px;
+    }
+
+    .button-link {
+      background-color: #048594;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .button-link:hover {
+      background-color: #04464d;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-top: 1px solid #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      .service-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo-img {
+        height: 40px;
+      }
+      .project-card {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrixRain"></canvas>
+
+  -- Navigation Bar -->
+<div class="NavBar">
+  <table>
+    <tr>
+     <td>
+  <img src="assests/icons/white logo.svg" alt="THARZ-37 Logo" class="logo" />
+</a>
+
+</td>
+
+      <td align="right">
+        <span class="nav-link" onclick="location.href='index.html'">Home</span>  
+        <a href="mailto:tharunoommenjacob@gmail.com">
+          <button class="contact">Contact</button>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+ <!-- Projects -->
+<div class="ShowcasePage">
+    <br>
+  <h2>Major Projects I have Done</h2>
+  <h3>1. Electronics based</h3>
+  <br></br>
+  <div class="projectgrid">
+    <div class="project-card" style="background-image: url('assests/images/light\ follwer\ .jpg');">
+      <div class="overlay">
+        <h3>Light Following Bot</h3>
+        <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/light-following-bot'"><strong>View</strong></button>
+      </div>
+    </div>
+
+    <div class="project-card" style="background-image: url('assests/images/balancing\ bot\ pid.jpg');">
+      <div class="overlay">
+        <h3>Self Balancing Robot</h3>
+        <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/aries-self-balancing-bot'"><strong>View</strong></button>
+      </div>
+    </div>
+    </div>
+    <br></br>
+  
+    <h3>2. Automation Based</h3>
+    <br></br>
+    <div class="projectgrid">
+    <div class="project-card" style="background-image: url('assests/images/gesture\ home.png');">
+      <div class="overlay">
+        <h3>Gesture Controlled Home Automation</h3>
+        <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/arduino-mini-ai-home'"><strong>View</strong></button>
+      </div>
+    </div>
+
+    <div class="project-card" style="background-image: url('assests/images/neurahome.png');">
+      <div class="overlay">
+        <h3>NeuraHome</h3>
+        <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
+        <button class="button-link" onclick="location.href='https://github.com/Tharz37/embedded-systems-home-automation'"><strong>View</strong></button>
+      </div>
+    </div>
+    </div>
+    <br></br>
+
+    <h3>3. CAD Based</h3>
+    <br></br>
+    <div class="projectgrid">   
+  <div class="project-card" style="background-image: url('assests/images/pedal.png');">
+      <div class="overlay">
+        <br></br>
+        <h3>Brake Pedal with 10MA</h3>
+        <p>A precision-designed brake pedal mechanism optimized for a 10:1 mechanical advantage. Engineered for manual override in autonomous vehicles, balances strength and responsiveness.</p>
+        <button class="button-link" onclick="location.href='https://a360.co/45MBQBD'"><strong>View</strong></button>
+      </div>
+    </div>
+  
+
+
+  <div class="project-card" style="background-image: url('assests/images/linear\ actuator.png');">
+      <div class="overlay">
+        <br></br>
+        <h3>Slider Crank Linear Actuator</h3>
+        <p>A CAD-modeled slider-crank system built to deliver controlled linear actuation from rotational input. Excellent for robotics, injection systems, or automation modules.</p>
+        <button class="button-link" onclick="location.href='https://a360.co/4kfTXn5'"><strong>View</strong></button>
+      </div>
+    </div>
+  
+
+
+  <div class="project-card" style="background-image: url('assests/images/scotch\ yoke.png');">
+      <div class="overlay">
+        <br></br>
+        <h3>Scotch Yoke Mechanism</h3>
+        <p>A compact mechanism converting rotary motion into pure sinusoidal linear motion. Perfect for actuators, engines, and precision tools.</p>
+        <button class="button-link" onclick="location.href='https://a360.co/4kJHGbO'"><strong>View</strong></button>
+      </div>
+    </div>
+</br>
+  </div>
+</div>
+
+  <footer>
+    © 2025 Tharun Oommen Jacob. All rights reserved.
+  </footer>
+
+<script>
+  const canvas = document.getElementById("matrixRain");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const characters = "0101010101$$++--==**@@##".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00e5ff";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 60);
+
+  window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+</script>
+
+</body>
+</html>

@@ -135,6 +135,14 @@
    .logo:hover {
   transform: scale(1.1);  
    }
+   .nav-link {
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 16px;
+  display: inline-block;
+  font-weight: bold;
+}
 
     .LandingPage {
   min-height: 100vh; /* Takes full screen height */
@@ -159,7 +167,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
    
-    .about, .Experience, .Skills, .ShowcasePage {
+    .about, .Experience, .Skills {
       margin: 8px auto;
       background-color: #101010;
       padding: 25px;
@@ -224,41 +232,6 @@
    .cert-item strong {
     color: #ffffff;
    }
-
-    .project-card {
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.2s;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 300px;
-      height: 300px;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .project-card .overlay {
-      background-color: rgba(0, 0, 0, 0.644);
-      color: #e0e0e0;
-      padding: 15px;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .project-card:hover {
-    transform: scale(1.03);
-   }
-
-    .project-card h3 {
-      color: #fff;
-      margin-top: 6px;
-    }
 
     .bar {
       width: 70%;
@@ -374,11 +347,7 @@
     align-items: center;
   }
 
-  .project-card {
-    width: 90%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-  }
+  
 }
 
   </style>
@@ -398,6 +367,7 @@
 </td>
 
       <td align="right">
+        <span class="nav-link" onclick="location.href='Projects.html'">Projects</span>
         <a href="mailto:tharunoommenjacob@gmail.com">
           <button class="contact">Contact</button>
         </a>
@@ -505,77 +475,6 @@
 
     </div>
   </section>
-</div>
-
-<!-- Projects -->
-<div class="ShowcasePage">
-  <h2>Major Projects</h2>
-  <div class="projectgrid">
-    <div class="project-card" style="background-image: url('assests/images/light\ follwer\ .jpg');">
-      <div class="overlay">
-        <h3>1. Light Following Bot</h3>
-        <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/light-following-bot'"><strong>View</strong></button>
-      </div>
-    </div>
-
-    <div class="project-card" style="background-image: url('assests/images/gesture\ home.png');">
-      <div class="overlay">
-        <h3>2. Gesture Controlled Home Automation</h3>
-        <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/arduino-mini-ai-home'"><strong>View</strong></button>
-      </div>
-    </div>
-
-    <div class="project-card" style="background-image: url('assests/images/neurahome.png');">
-      <div class="overlay">
-        <h3>3. NeuraHome</h3>
-        <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/embedded-systems-home-automation'"><strong>View</strong></button>
-      </div>
-    </div>
-
-    <div class="project-card" style="background-image: url('assests/images/balancing\ bot\ pid.jpg');">
-      <div class="overlay">
-        <h3>4. Self Balancing Robot</h3>
-        <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/aries-self-balancing-bot'"><strong>View</strong></button>
-      </div>
-    </div>
-  
-
-    
-  <div class="project-card" style="background-image: url('assests/images/pedal.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>5. Brake Pedal with 10MA</h3>
-        <p>A precision-designed brake pedal mechanism optimized for a 10:1 mechanical advantage. Engineered for manual override in autonomous vehicles, balances strength and responsiveness.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/45MBQBD'"><strong>View</strong></button>
-      </div>
-    </div>
-  
-
-
-  <div class="project-card" style="background-image: url('assests/images/linear\ actuator.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>6. Slider Crank Linear Actuator</h3>
-        <p>A CAD-modeled slider-crank system built to deliver controlled linear actuation from rotational input. Excellent for robotics, injection systems, or automation modules.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/4kfTXn5'"><strong>View</strong></button>
-      </div>
-    </div>
-  
-
-
-  <div class="project-card" style="background-image: url('assests/images/scotch\ yoke.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>7. Scotch Yoke Mechanism</h3>
-        <p>A compact mechanism converting rotary motion into pure sinusoidal linear motion. Perfect for actuators, engines, and precision tools.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/4kJHGbO'"><strong>View</strong></button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <footer>
