@@ -36,6 +36,9 @@ The site is responsive, clean, and optimized for **professional visibility**, **
 ```bash
 Tharz37-Website/
 ├── index.html                  # Main webpage file (Landing, About, Skills, etc.)
+├── Projects.html               # Webpage Showcasing Projects
+├── contact.html                # Interactive contact form (FormSubmit backend)
+├── thanks.html                 # Redirect after form submission
 ├── LICENSE                     # MIT License declaration
 ├── README.md                   # You're reading it 😉
 ├── google56657cc4f6fa9002.html # Google Search Console verification
@@ -51,16 +54,19 @@ Tharz37-Website/
 ```
 
 
-## 📌 File Explanation
+## 🔍 File Explanation
 
-| File / Folder             | Purpose                                           |
-|--------------------------|---------------------------------------------------|
-| `index.html`             | Main website (contains all sections: landing, about, skills, etc.) |
-| `assets/images/`         | Stores project images, profile picture, etc.      |
-| `assets/icons/`          | Contains logo (SVG), favicon                     |
-| `LICENSE`                | MIT License (open-source friendly)               |
-| `google*.html`           | For Google Search Console ownership verification |
-| `site.webmanifest`       | (Optional) Used for PWA compatibility            |
+| File / Folder        | Purpose                                                  |
+|----------------------|----------------------------------------------------------|
+| `index.html`         | Main website: landing page, skills, certifications, etc. |
+| `project.html`       | Dedicated projects gallery                                |
+| `contact.html`       | Contact form powered by FormSubmit                        |
+| `thanks.html`        | Thank you redirect page after form submission             |
+| `googleXXXX.html`    | Google Search Console verification                        |
+| `LICENSE`            | MIT License declaration                                   |
+| `README.md`          | This file 😉                                              |
+| `assets/images/`     | All profile, CAD, and project images                      |
+| `assets/icons/`      | Custom logo (SVG) and favicon.ico                         |
 
 ---
 
@@ -87,16 +93,18 @@ Or open in VS Code and use the Live Server extension
 👉 https://tharz37.github.io/Tharz37-Website/
 
 
-## 🧪 How to Modify for Yourself
-If someone forks/clones this repo, here’s what you’ll need to change:
+## 🧪 Customizing This for Yourself
+If you're using this template as a base (with permission or credit), modify these:
 
-**index.html** 
-- Replace name, about section, skills, certificates
-- Update project image paths from /assets/images/
-- Update Google Drive/view links
+**index.html**: update your name, skills, certificates
 
-**/assets/images/** 
-- Add your own profile photo and project visuals
+**project.html**: add your projects and links
+
+**contact.html**: change FormSubmit email ID
+
+**assets/**: replace my images with yours
+
+
 
 ## LICENSE (optional)
 

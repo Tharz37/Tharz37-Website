@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact | Tharz_37</title>
-    <style>
-        :root {
+  <title>Contact | Tharz_37</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
       --bg: white;
       --text: black;
       --accent: #00ffff;
@@ -11,101 +12,111 @@
       --btn: #222;
       --btn-hover: #333;
     }
-          .ContactSection {
-  background-color: white;
-  padding: 40px;
-  margin: 30px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  max-width: auto;
-  color: var(--text);
-  text-align: left;
-}
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text);
+    }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 16px;
-  background: #4544444e;
-  color: white;
-  border: 1px solid #333;
-  border-radius: 6px;
-  resize: none;
-}
+    .ContactSection {
+      background-color: var(--bg);
+      padding: 40px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 600px;
+    }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-}
+    .ContactSection h2 {
+      margin-top: 0;
+    }
 
-.contact-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-.contact-form .button-link {
-  background-color: var(--accent);
-  color: #000;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      font-size: 16px;
+      background: #f4f4f4;
+      color: black;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: none;
+      width: 100%;
+    }
 
-.contact-form .button-link:hover {
-  background-color: #00dddd;
-}
-.button-link {
-      background-color: #048594;
-      color: white;
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+    }
+
+    .button-link {
+      background-color: var(--accent);
+      color: #000;
       padding: 10px 20px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       font-size: 16px;
-      margin-top: 15px;
-      display: inline-block;
+      font-weight: bold;
       transition: background-color 0.3s;
     }
 
     .button-link:hover {
-      background-color: #04464d;
-      color: white;
+      background-color: #00dddd;
     }
 
+    @media screen and (max-width: 600px) {
+      .ContactSection {
+        padding: 20px;
+        margin: 20px;
+      }
 
-    </style>
-    </head>
+      .button-link {
+        width: 100%;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<div class="ContactSection">
-  <h2>Contact Me</h2>
-  <p>Have a project idea? Drop a message below 👇</p>
+  <div class="ContactSection">
+    <h2>Contact Me</h2>
+    <p>Have a project idea? Drop a message below 👇</p>
 
-<form action="https://formsubmit.co/bb121d45b8b466d71338e9e14f2cd4cd" method="POST" class="contact-form">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_subject" value="New Contact From Portfolio Website">
-    <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I'll get back to you soon.">
-    <input type="hidden" name="_next" value="https://tharz37.github.io/Tharz37-Website/thanks.html">
+    <form action="https://formsubmit.co/bb121d45b8b466d71338e9e14f2cd4cd" method="POST" class="contact-form">
+      <!-- Hidden Settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_subject" value="New Contact From Portfolio Website">
+      <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I'll get back to you soon.">
+      <input type="hidden" name="_next" value="https://tharz37.github.io/Tharz37-Website/thanks.html">
 
-    <label for="name">Your Name</label>
-    <input type="text" name="name" required>
+      <label for="name">Your Name</label>
+      <input type="text" name="name" required>
 
-    <label for="email">Your Email</label>
-    <input type="email" name="email" required>
+      <label for="email">Your Email</label>
+      <input type="email" name="email" required>
 
-    <label for="message">Message</label>
-    <textarea name="message" rows="5" required></textarea>
+      <label for="message">Message</label>
+      <textarea name="message" rows="5" required></textarea>
 
-    <button type="submit" class="button-link">Send Message</button>
-  </form>
-</div>
+      <button type="submit" class="button-link">Send Message</button>
+    </form>
+  </div>
+
 </body>
 </html>
