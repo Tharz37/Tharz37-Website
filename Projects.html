@@ -4,7 +4,7 @@
   <link rel="icon" type="image/x-icon" href="assests/icons/favicon.ico" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Tharun Oommen Jacob</title>
+  <title>Projects | Tharz_37</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <style>
     :root {
@@ -64,6 +64,14 @@
     .ShowcasePage {
       margin: 8px auto;
       background-color: #101010cc;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .Service {
+      margin: 8px auto;
+      background-color: #101010;
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
@@ -143,6 +151,66 @@
       color: #fff;
       margin-top: 6px;
     }
+
+    .Service ul {
+      padding-left: 20px;
+    }
+
+    .Service li {
+      margin-bottom: 8px;
+    }
+
+   .ContactSection {
+  background-color: #101010;
+  padding: 40px;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  max-width: 700px;
+  color: var(--text);
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 6px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-form .button-link {
+  background-color: var(--accent);
+  color: #000;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.contact-form .button-link:hover {
+  background-color: #00dddd;
+}
+
 
     .button-link {
       background-color: #048594;
@@ -293,6 +361,45 @@
 </br>
   </div>
 </div>
+
+<!-- Services and Contact -->
+<div class="Service">
+  <h2>Services and Help</h2>
+  <p>If you'd like to request any of the following, send me your message below 👇</p>
+  <ul>
+    <li>🔧 CAD Design & Simulation</li>
+    <li>🌐 Web Development</li>
+    <li>🧠 AI & LLM Integration</li>
+    <li>📐 Engineering Projects</li>
+  </ul>
+</div>
+
+<div class="ContactSection">
+  <h2>Contact Me</h2>
+  <p>Have a project idea? Drop a message below 👇</p>
+
+  <form action="https://formsubmit.co/tharunoommenjacob@gmail.com" method="POST" class="contact-form">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_subject" value="New Contact From Portfolio Website">
+    <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I'll get back to you soon.">
+    <input type="hidden" name="_next" value="https://tharz37.github.io/Tharz37-Website/thanks.html">
+
+    <label for="name">Your Name</label>
+    <input type="text" name="name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea name="message" rows="5" required></textarea>
+
+    <button type="submit" class="button-link">Send Message</button>
+  </form>
+</div>
+</div>
+
+
 
   <footer>
     © 2025 Tharz_37. All Rights Reserved.

@@ -233,18 +233,32 @@
     color: #ffffff;
    }
 
-    .bar {
-      width: 70%;
-      background: #333;
-      height: 6px;
-      border-radius: 3px;
-    }
+.lang-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align label to the left */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 25px auto; /* Center the block horizontally */
+}
 
-    .bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 3px;
-    }
+.bar {
+  width: 100%;
+  background: #333;
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 6px;
+  align-self: center; /* Ensure the bar is centered in its container */
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  width: 0;
+  transition: width 2s ease-in-out;
+}
+
     .about {
       display: flex;
       flex-wrap: wrap;
@@ -417,13 +431,27 @@
 
 <!-- Languages -->
 <div class="Language">
-<section id="language">
-  <h2>Languages</h2>
-  <div class="lang-skill"><label>English</label><br><div class="bar"><div class="bar-fill" style="width: 95%"></div></div></div><br></br>
-  <div class="lang-skill"><label>Malayalam</label><div class="bar"><div class="bar-fill" style="width: 100%"></div></div></div><br></br>
-  <div class="lang-skill"><label>Hindi</label><div class="bar"><div class="bar-fill" style="width: 70%"></div></div></div><br></br>
-</section>
+  <section id="language">
+    <h2>Languages</h2>
+
+    <div class="lang-skill">
+      <label>English</label>
+      <div class="bar"><div class="bar-fill" style="width: 95%"></div></div>
+    </div>
+
+    <div class="lang-skill">
+      <label>Malayalam</label>
+      <div class="bar"><div class="bar-fill" style="width: 100%"></div></div>
+    </div>
+
+    <div class="lang-skill">
+      <label>Hindi</label>
+      <div class="bar"><div class="bar-fill" style="width: 70%"></div></div>
+    </div>
+
+  </section>
 </div>
+
 
 <!--Experience-->
 <div class="Experience">
@@ -480,6 +508,19 @@
 <footer>
   © 2025 Tharz_37. All Rights Reserved.
 </footer>
+
+<script>
+const bars = document.querySelectorAll('.bar-fill');
+
+function animateBars() {
+  bars.forEach(bar => {
+    const targetWidth = bar.getAttribute('style').match(/\d+/)[0];
+    bar.style.width = targetWidth + '%';
+  });
+}
+
+window.addEventListener('load', animateBars);
+</script>
 
 <script>
   const canvas = document.getElementById("matrixRain");
