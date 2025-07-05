@@ -160,58 +160,7 @@
       margin-bottom: 8px;
     }
 
-   .ContactSection {
-  background-color: #101010;
-  padding: 40px;
-  margin: 30px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  max-width: auto;
-  color: var(--text);
-  text-align: left;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 16px;
-  background: #1a1a1a;
-  color: white;
-  border: 1px solid #333;
-  border-radius: 6px;
-  resize: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-}
-
-.contact-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.contact-form .button-link {
-  background-color: var(--accent);
-  color: #000;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.contact-form .button-link:hover {
-  background-color: #00dddd;
-}
-
-
+ 
     .button-link {
       background-color: #048594;
       color: white;
@@ -270,8 +219,7 @@
 
       <td align="right">
         <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>  
-        <a href="mailto:tharunoommenjacob@gmail.com">
-          <button class="contact">Contact</button>
+        <button class="contact" onclick="location.href='contact.html'">contact</button>
         </a>
       </td>
     </tr>
@@ -372,34 +320,8 @@
     <li>🧠 AI & LLM Integration</li>
     <li>📐 Engineering Projects</li>
   </ul>
+<button class="button-link" onclick="location.href='contact.html'"><strong>contact</strong></button>
 </div>
-
-<div class="ContactSection">
-  <h2>Contact Me</h2>
-  <p>Have a project idea? Drop a message below 👇</p>
-
-<form action="https://formsubmit.co/bb121d45b8b466d71338e9e14f2cd4cd" method="POST" class="contact-form">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_subject" value="New Contact From Portfolio Website">
-    <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I'll get back to you soon.">
-    <input type="hidden" name="_next" value="https://tharz37.github.io/Tharz37-Website/thanks.html">
-
-    <label for="name">Your Name</label>
-    <input type="text" name="name" required>
-
-    <label for="email">Your Email</label>
-    <input type="email" name="email" required>
-
-    <label for="message">Message</label>
-    <textarea name="message" rows="5" required></textarea>
-
-    <button type="submit" class="button-link">Send Message</button>
-  </form>
-</div>
-</div>
-
-
 
   <footer>
     © 2025 Tharz_37. All Rights Reserved.
