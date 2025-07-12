@@ -182,6 +182,20 @@
       gap: 90px;
       justify-content: center;
     }
+    .cursor {
+  display: inline-block;
+  width: 0px;
+  background-color: #00ffff;
+  animation: blink 0.7s steps(2, start) infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
 
     .skillgrid {
     display: flex;
@@ -392,9 +406,9 @@
 <!-- Landing Page -->
 <div class="LandingPage">
 
-  <h1>Hi, I am <strong>Tharun Oommen Jacob</strong></h1>
+  <h1><span id="typewriter"></span></h1>
   <h2>An Engineering Student, B.Tech in Robotics and Automation</h2>
-  <h3>CAD | PCB | WEB Designer</h3>
+  <h3><span id="typed-role"></span><span class="cursor">|</span></h3>
   <div>
     <button class="button-link" onclick="location.href='https://github.com/Tharz37'"><strong>View my GitHub</strong></button><br><br>
     <button class="button-link" onclick="location.href='https://www.linkedin.com/in/tharunoommenjacob0737/'"><strong>View my Linkedin</strong></button><br><br>
@@ -509,6 +523,59 @@
 </footer>
 
 <script>
+  // Static intro text
+  const txt = "Hi, I am Tharun Oommen Jacob";
+  const introSpan = document.getElementById("typewriter");
+  const roleSpan = document.getElementById("typed-role");
+  let i = 0;
+
+  // Roles logic
+  const roles = ["CAD Designer", "Web Developer", "PCB Designer", "AI Developer"];
+  let currentIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100;
+  const eraseSpeed = 50;
+  const delayBetween = 2000;
+
+  function typeIntro() {
+    if (i < txt.length) {
+      introSpan.innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeIntro, 120);
+    } else {
+      // Start the role loop after the intro finishes
+      setTimeout(typeRoles, 1000);
+    }
+  }
+
+  function typeRoles() {
+    const currentRole = roles[currentIndex];
+    if (isDeleting) {
+      roleSpan.textContent = currentRole.substring(0, charIndex--);
+      if (charIndex < 0) {
+        isDeleting = false;
+        currentIndex = (currentIndex + 1) % roles.length;
+        setTimeout(typeRoles, 300);
+      } else {
+        setTimeout(typeRoles, eraseSpeed);
+      }
+    } else {
+      roleSpan.textContent = currentRole.substring(0, charIndex++);
+      if (charIndex > currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeRoles, delayBetween);
+      } else {
+        setTimeout(typeRoles, typingSpeed);
+      }
+    }
+  }
+
+  // Start on full page load
+  window.onload = typeIntro;
+</script>
+
+<script>
 const bars = document.querySelectorAll('.bar-fill');
 
 function animateBars() {
@@ -520,6 +587,7 @@ function animateBars() {
 
 window.addEventListener('load', animateBars);
 </script>
+
 
 <script>
   const canvas = document.getElementById("matrixRain");
