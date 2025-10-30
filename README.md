@@ -264,14 +264,3 @@ You are welcome to explore, learn, and fork — but please don’t copy-paste it
 
 
 ## © 2025 Tharun Oommen Jacob. All rights reserved.
-
-
-
-````
-
-
-
-
-
-
-No file chosenNo file chosen
