@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Tharz_37</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <style>
     :root {
       --bg: #000000;
@@ -32,6 +31,7 @@
       background: transparent;
     }
 
+    /* --- NavBar (No Changes) --- */
     .NavBar {
       background-color: var(--bg);
       padding: 12px;
@@ -46,37 +46,9 @@
       font-family: "Calibri New", sans-serif;
       color: var(--text);
     }
-
-    .NavBar table {
-      width: 98%;
-    }
-
-    .NavBar td {
-      vertical-align: middle;
-    }
-
-    .NavBar h1 {
-      margin: 0;
-      font-size: 20px;
-      padding-left: 15px;
-    }
-
-    .ShowcasePage {
-      margin: 8px auto;
-      background-color: #101010cc;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
-
-    .Service {
-      margin: 8px auto;
-      background-color: #101010;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
-
+    .NavBar table { width: 98%; }
+    .NavBar td { vertical-align: middle; }
+    .NavBar h1 { margin: 0; font-size: 20px; padding-left: 15px; }
     .contact {
       background-color: white;
       color: black;
@@ -86,11 +58,7 @@
       cursor: pointer;
       font-size: 14px;
     }
-
-    .contact:hover {
-      background-color: grey;
-    }    
-
+    .contact:hover { background-color: grey; }    
     .logo {
       height: 40px;
       width: auto;
@@ -98,10 +66,7 @@
       cursor: pointer;
       vertical-align: middle;
     }
-   .logo:hover {
-      transform: scale(1.1);  
-    }
-
+    .logo:hover { transform: scale(1.1); }
     .nav-link {
       color: var(--text);
       font-size: 16px;
@@ -110,57 +75,78 @@
       display: inline-block;
       font-weight: bold;
     }
-    .projectgrid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 90px;
-      justify-content: center;
+
+    /* --- Main Page Container --- */
+    .ShowcasePage {
+      margin: 8px auto;
+      background-color: #101010cc;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      /* Added padding to clear fixed navbar */
+      padding-top: 100px; 
     }
 
-        .project-card {
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.2s;
+    .ShowcasePage h2 {
+      text-align: center;
+      color: var(--accent);
+      border-bottom: 2px solid #555;
+      padding-bottom: 15px;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    /* --- NEW Project List Styles --- */
+    .project-list-item {
+      display: flex;
+      background-color: var(--card);
       border-radius: 12px;
-      overflow: hidden;
-      width: 300px;
-      height: 300px;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
+      margin: 30px auto; /* Spacing between items */
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      overflow: hidden; /* To contain the image */
+      transition: transform 0.2s, box-shadow 0.2s;
+      max-width: 900px; /* REDUCED width from 1000px */
+      border: 1px solid #222;
+    }
+    .project-list-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(160, 5, 5, 0.5); /* Accent shadow on hover */
     }
 
-    .project-card .overlay {
-      background-color: rgba(0, 0, 0, 0.644);
-      color: #e0e0e0;
-      padding: 15px;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
+    .project-list-text {
+      flex-basis: 60%; /* INCREASED from 55% */
+      padding: 25px 35px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
     }
-
-    .project-card:hover {
-    transform: scale(1.03);
-   }
-
-    .project-card h3 {
+    
+    .project-list-text h3 {
       color: #fff;
-      margin-top: 6px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 24px;
     }
 
-    .Service ul {
-      padding-left: 20px;
+    .project-list-text p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
-    .Service li {
-      margin-bottom: 8px;
+    .project-list-image {
+      flex-basis: 40%; /* REDUCED from 45% */
+      min-height: 320px; /* INCREASED length from 300px */
+    }
+    
+    .project-list-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* This is key to making it look good */
+      display: block;
     }
 
- 
+    /* --- Button Style (Unchanged) --- */
     .button-link {
       background-color: #a00505;
       color: white;
@@ -172,13 +158,27 @@
       margin-top: 15px;
       display: inline-block;
       transition: background-color 0.3s;
+      text-decoration: none; /* Added for button links */
+      text-align: center;
     }
-
     .button-link:hover {
       background-color: #a0050574;
       color: white;
     }
 
+    /* --- Services (Unchanged) s--- */
+    .Service {
+      margin: 40px auto;
+      background-color: #101010;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      max-width: 900px; /* Matched new project width */
+    }
+    .Service ul { padding-left: 20px; }
+    .Service li { margin-bottom: 8px; }
+    
+    /* --- Footer (Unchanged) --- */
     footer {
       text-align: center;
       margin-top: 40px;
@@ -189,17 +189,24 @@
     }
 
     @media screen and (max-width: 768px) {
-      .service-grid {
-        flex-direction: column;
-        align-items: center;
+      .ShowcasePage {
+        padding-top: 80px;
       }
-      .logo-img {
-        height: 40px;
+      
+      /* --- NEW Responsive Project List --- */
+      .project-list-item {
+        /* Image on top, Text on bottom */
+        flex-direction: column-reverse; 
       }
-      .project-card {
-    width: 90%;
-    height: auto;
-    aspect-ratio: 1 / 1;
+
+      .project-list-image {
+        min-height: 200px; /* Adjust height for mobile */
+        flex-basis: auto; /* Reset flex-basis */
+      }
+
+      .project-list-text {
+        padding: 25px;
+        flex-basis: auto; /* Reset flex-basis */
       }
     }
   </style>
@@ -207,118 +214,87 @@
 <body>
   <canvas id="matrixRain"></canvas>
 
-  -- Navigation Bar -->
-<div class="NavBar">
-  <table>
-    <tr>
-     <td>
-  <img src="assests/icons/logo.png" alt="THARZ-37 Logo" class="logo" />
-</a>
-
-</td>
-
-      <td align="right">
-        <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>  
-        <button class="contact" onclick="location.href='contact.html'">contact</button>
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
-
- <!-- Projects -->
-<div class="ShowcasePage">
-    <br>
-  <h2>Major Projects I have Done</h2>
-  <h3>1. Electronics based</h3>
-  <br></br>
-  <div class="projectgrid">
-    <div class="project-card" style="background-image: url('assests/images/light\ follwer\ .jpg');">
-      <div class="overlay">
-        <h3>Light Following Bot</h3>
-        <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/light-following-bot'"><strong>View</strong></button>
-      </div>
-    </div>
-
-    <div class="project-card" style="background-image: url('assests/images/balancing\ bot\ pid.jpg');">
-      <div class="overlay">
-        <h3>Self Balancing Robot</h3>
-        <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/aries-self-balancing-bot'"><strong>View</strong></button>
-      </div>
-    </div>
-    </div>
-    <br></br>
-  
-    <h3>2. Automation Based</h3>
-    <br></br>
-    <div class="projectgrid">
-    <div class="project-card" style="background-image: url('assests/images/gesture\ home.png');">
-      <div class="overlay">
-        <h3>Gesture Controlled Home Automation</h3>
-        <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/arduino-mini-ai-home'"><strong>View</strong></button>
-      </div>
-    </div>
-
-    <div class="project-card" style="background-image: url('assests/images/neurahome.png');">
-      <div class="overlay">
-        <h3>NeuraHome</h3>
-        <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
-        <button class="button-link" onclick="location.href='https://github.com/Tharz37/embedded-systems-home-automation'"><strong>View</strong></button>
-      </div>
-    </div>
-    </div>
-    <br></br>
-
-    <h3>3. CAD Based</h3>
-    <br></br>
-    <div class="projectgrid">   
-  <div class="project-card" style="background-image: url('assests/images/pedal.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>Brake Pedal with 10MA</h3>
-        <p>A precision-designed brake pedal mechanism optimized for a 10:1 mechanical advantage. Engineered for manual override in autonomous vehicles, balances strength and responsiveness.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/45MBQBD'"><strong>View</strong></button>
-      </div>
-    </div>
-  
-
-
-  <div class="project-card" style="background-image: url('assests/images/linear\ actuator.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>Slider Crank Linear Actuator</h3>
-        <p>A CAD-modeled slider-crank system built to deliver controlled linear actuation from rotational input. Excellent for robotics, injection systems, or automation modules.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/4kfTXn5'"><strong>View</strong></button>
-      </div>
-    </div>
-  
-
-
-  <div class="project-card" style="background-image: url('assests/images/scotch\ yoke.png');">
-      <div class="overlay">
-        <br></br>
-        <h3>Scotch Yoke Mechanism</h3>
-        <p>A compact mechanism converting rotary motion into pure sinusoidal linear motion. Perfect for actuators, engines, and precision tools.</p>
-        <button class="button-link" onclick="location.href='https://a360.co/4kJHGbO'"><strong>View</strong></button>
-      </div>
-    </div>
-</br>
+  <div class="NavBar">
+    <table>
+      <tr>
+        <td>
+          <img src="assests/icons/logo.png" alt="THARZ-37 Logo" class="logo" />
+        </td>
+        <td align="right">
+          <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>  
+          <button class="contact" onclick="location.href='contact.html'">contact</button>
+          </td>
+      </tr>
+    </table>
   </div>
-</div>
 
-<!-- Services and Contact -->
-<div class="Service">
+
+ <div class="ShowcasePage">
+  <h2>Major Projects I have Done</h2>
+
+  <div class="project-list-item">
+    <div class="project-list-text">
+      <h3>Mechanism for Autonomous Braking [A-Baja]</h3>
+      <p>Designed a compact, high-force (1000N) braking mechanism for an autonomous buggy, navigating severe space and mechanical advantage constraints.</p>
+      <button class="button-link" onclick="location.href='assests/Autonomous braking mechanism.html'"><strong>View</strong></button>
+    </div>
+    <div class="project-list-image">
+      <img src="assests/images/pedal.png" alt="A-Baja Braking Mechanism">
+    </div>
+  </div>
+
+  <div class="project-list-item">
+    <div class="project-list-text">
+      <h3>NeuraHome</h3>
+      <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
+      <button class="button-link" onclick="location.href='assests/neurahome.html'"><strong>View</strong></button>
+    </div>
+    <div class="project-list-image">
+      <img src="assests/images/neurahome.png" alt="NeuraHome Project">
+    </div>
+  </div>
+
+  <div class="project-list-item">
+    <div class="project-list-text">
+      <h3>Self Balancing Robot</h3>
+      <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
+      <button class="button-link" onclick="location.href='assests/pid balancing robot.html'"><strong>View</strong></button>
+    </div>
+    <div class="project-list-image">
+      <img src="assests/images/balancing bot pid.jpg" alt="Self Balancing Robot">
+    </div>
+  </div>
+
+  <div class="project-list-item">
+    <div class="project-list-text">
+      <h3>Gesture Controlled Home Automation</h3>
+      <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
+      <button class="button-link" onclick="location.href='assests/ai home automation.html'"><strong>View</strong></button>
+    </div>
+    <div class="project-list-image">
+      <img src="assests/images/gesture-home-circuit.jpg" alt="Gesture Controlled Home">
+    </div>
+  </div>
+
+  <div class="project-list-item">
+    <div class="project-list-text">
+      <h3>Light Following Bot</h3>
+      <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
+      <button class="button-link" onclick="location.href='assests/lightfollower.html'"><strong>View</strong></button>
+    </div>
+    <div class="project-list-image">
+      <img src="assests/images/light follwer .jpg" alt="Light Following Bot">
+    </div>
+  </div>
+
+</div> <div class="Service">
   <h2>Services and Help</h2>
   <p>If you'd like to request any of the following, send me your message below 👇</p>
   <ul>
-    <li>🔧 CAD Design & Simulation</li>
-    <li>🌐 Web Development</li>
+    <li>🦾 CAD Design & Simulation</li>
+    <li>🕸️ Web Development</li>
     <li>🧠 AI & LLM Integration</li>
-    <li>📐 Engineering Projects</li>
+    <li>🤖 Engineering Projects</li>
   </ul>
 <button class="button-link" onclick="location.href='contact.html'"><strong>contact</strong></button>
 </div>
@@ -328,6 +304,7 @@
   </footer>
 
 <script>
+  // Your Matrix script (No changes)
   const canvas = document.getElementById("matrixRain");
   const ctx = canvas.getContext("2d");
   canvas.height = window.innerHeight;
@@ -360,6 +337,5 @@
     canvas.width = window.innerWidth;
   });
 </script>
-
 </body>
 </html>

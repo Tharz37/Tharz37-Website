@@ -70,7 +70,14 @@
         --contact-btn: #ffffff;
         --contact-hover: #aaaaaa;
       }
-      #matrixRain {
+        body {
+        margin: 0;
+        background: #000000;
+        color: #ffffff;
+        font-family: 'Segoe UI', sans-serif;
+        transition: all 0.3s ease;
+        }
+        #matrixRain {
         position: fixed;
         top: 0;
         left: 0;
@@ -78,131 +85,100 @@
         width: 100%;
         height: 100%;
         background: transparent;
-      }
-
-      body {
-        margin: 0;
-        background: var(--bg);
+        }
+        .NavBar {
+        background-color: black;
+        padding: 12px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-top: 1px solid #555;
+        border-bottom: 1px solid #555;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        font-size: 16px;
+        font-family: "Calibri New", sans-serif;
         color: var(--text);
-        font-family: 'Segoe UI', sans-serif;
-        transition: all 0.3s ease;
-      }
-
-      .contact {
-        background-color: var(--contact-btn);
+        }
+        .NavBar table {
+        width: 98%;
+        }
+        .NavBar td {
+        vertical-align: middle;
+        }
+        .NavBar h1 {
+        margin: 0;
+        font-size: 20px;
+        padding-left: 15px;
+        }
+        .logo {
+        height: 40px;
+        width: auto;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        vertical-align: middle;
+        }
+        .logo:hover {
+        transform: scale(1.1);  
+        }
+        .contact {
+        background-color: #ffffff;
         color: black;
         padding: 10px 20px;
         border: none;
         border-radius: 6px;
         cursor: pointer;
         font-size: 14px;
-      }
-
-      .contact:hover {
-        background-color: var(--contact-hover);
-      }
-
-    .NavBar {
-      background-color: var(--bg);
-      padding: 12px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-top: 1px solid #555;
-      border-bottom: 1px solid #555;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-      font-size: 16px;
-      font-family: "Calibri New", sans-serif;
-      color: var(--text);
-    }
-
-    .NavBar table {
-      width: 98%;
-    }
-
-    .NavBar td {
-      vertical-align: middle;
-    }
-
-    .NavBar h1 {
-      margin: 0;
-      font-size: 20px;
-      padding-left: 15px;
-    }
-
-    .logo {
-      height: 40px;
-      width: auto;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      vertical-align: middle;
-    }
-   .logo:hover {
-      transform: scale(1.1);  
-    }
-    .nav-link {
-    color: var(--text);
-    font-size: 16px;
-    cursor: pointer;
-    padding: 8px 16px;
-    display: inline-block;
-    font-weight: bold;
-  }
-
-      .LandingPage {
-    min-height: 100vh; /* Takes full screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: left;     /* Horizontally left content */
-    background-color: #1010109b;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    text-align: left;
-  }
-
-
-      .Language, .Certificates {
+        }
+        .contact:hover {
+        background-color:  #aaaaaa;
+        }
+        .LandingPage {
+        min-height: 100vh; /* Takes full screen height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        background-color: #1010109b;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.6);
+        text-align: left;
+        }
+       .Language, .Certificates {
         margin: 8px auto;
         background-color: #101010;
         padding: 25px;
         text-align: lcenter;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      }
-    
-      .about, .Experience, .Skills {
+        }    
+        .about, .Experience, .Skills {
         margin: 8px auto;
         background-color: #101010;
         padding: 25px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      }
-
-
-      .projectgrid {
+        }
+       .projectgrid {
         display: flex;
         flex-wrap: wrap;
         gap: 90px;
         justify-content: center;
-      }
-      .cursor {
-    display: inline-block;
-    width: 0px;
-    background-color: #00ffff;
-    animation: blink 0.7s steps(2, start) infinite;
-    margin-left: 4px;
-  }
+        }
+       .cursor {
+       display: inline-block;
+       width: 0px;
+       background-color: #00ffff;
+       animation: blink 0.7s steps(2, start) infinite;
+       margin-left: 4px;
+       }
 
   @keyframes blink {
     to {
       visibility: hidden;
     }
   }
-
-
       .skillgrid {
       display: flex;
       flex-wrap: wrap;
@@ -210,8 +186,7 @@
       justify-content: center;
       padding-top: 10px;
       }
-
-    .skill-item {
+      .skill-item {
       background-color: #1a1a1a;
       padding: 15px;
       border-radius: 8px;
@@ -219,15 +194,12 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
       }
-
-    .skill-item:hover {
+      .skill-item:hover {
       transform: scale(1.03);
-    }
-
-    .skill-item strong {
+      }
+      .skill-item strong {
       color: #ffffff;
-    }
-
+      }
       .certificate {
       display: flex;
       flex-wrap: wrap;
@@ -235,8 +207,7 @@
       justify-content: center;
       padding-top: 10px;
       }
-
-    .cert-item {
+      .cert-item {
       background-color: #1a1a1a;
       padding: 15px;
       border-radius: 8px;
@@ -244,14 +215,12 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
       }
-
-    .cert-item:hover {
+      .cert-item:hover {
       transform: scale(1.03);
-    }
-
-    .cert-item strong {
+      }
+      .cert-item strong {
       color: #ffffff;
-    }
+      }
 
   .lang-skill {
     display: flex;
@@ -273,7 +242,7 @@
 
   .bar-fill {
     height: 100%;
-    background: var(--accent);
+    background: #a00505;
     border-radius: 3px;
     width: 0;
     transition: width 2s ease-in-out;
@@ -392,22 +361,20 @@
 
   <!-- Navigation Bar -->
   <div class="NavBar">
-    <table>
-      <tr>
-      <td>
-    <img src="assests/icons/logo.png" alt="THARZ-37 Logo" class="logo" />
-  </a>
-
-  </td>
-
-        <td align="right">
-          <span class="nav-link" onclick="location.href='Projects.html'">Projects</span>
-          <button class="contact" onclick="window.open('contact.html')">Contact</button>
-          </a>
+        <table>
+            <tr>
+                <td>
+                    <img src="assests/icons/logo.png" alt="THARZ-37 Logo" class="logo" />
+                </a>
+            </td>
+            <td align="right">
+                <span class="nav-link" onclick="location.href='Projects.html'"><strong>Projects</strong></span>
+                <button class="contact" onclick="location.href='contact.html'">Contact</button>
+            </a>
         </td>
-      </tr>
-    </table>
-  </div>
+    </tr>
+</table>
+</div>
 
   <!-- Landing Page -->
   <div class="LandingPage">

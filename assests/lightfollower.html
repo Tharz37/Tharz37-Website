@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Follower Robot | Tharz_37</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #a00505;
+      --card: #101010;
+      --btn: #222;
+      --btn-hover: #333;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 80px; 
+    }
+
+    #matrixRain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    /* --- NavBar (No changes) --- */
+    .NavBar {
+      background-color: var(--bg);
+      padding: 12px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-family: "Calibri New", sans-serif;
+      color: var(--text);
+    }
+    .NavBar table { width: 98%; }
+    .NavBar td { vertical-align: middle; }
+    .NavBar h1 { margin: 0; font-size: 20px; padding-left: 15px; }
+    .contact {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .contact:hover { background-color: grey; }    
+    .logo {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .logo:hover { transform: scale(1.1); }
+    .nav-link {
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 8px 16px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    /* --- BLOG LAYOUT STYLES --- */
+
+    .ShowcasePage {
+      min-height: 100vh; 
+      max-width: 1100px;
+      margin: 20px auto;
+      background-color: #101010cc;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .ShowcasePage h2 {
+      text-align: center;
+      color: var(--accent);
+      border-bottom: 2px solid #555;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+
+    .ShowcasePage h3 {
+      color: #eee;
+      font-size: 26px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .ShowcasePage p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .ShowcasePage img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    
+    .blog-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .blog-column {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .blog-column img {
+      margin: 0;
+    }
+    
+    .blog-column-text {
+      padding: 0 10px;
+    }
+
+    .blog-column-text h3 {
+      margin-top: 0;
+    }
+
+    /* --- PREFORMATTED TEXT STYLE --- */
+    pre {
+      background-color: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      color: #ddd;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: auto; /* Allows horizontal scrolling */
+      white-space: pre-wrap; /* Wraps text */
+    }
+
+    /* --- GITHUB BUTTON STYLE --- */
+    .github-button {
+      background-color: var(--accent);
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      text-align: center;
+      padding: 12px 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 16px;
+    }
+    .github-button:hover {
+      background-color: #a00505b0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-top: 1px solid #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      .ShowcasePage {
+        padding: 20px;
+        margin: 10px;
+      }
+      .ShowcasePage h2 {
+        font-size: 24px;
+      }
+      .ShowcasePage h3 {
+        font-size: 22px;
+      }
+      .blog-row {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrixRain"></canvas>
+
+  <div class="NavBar">
+    <table>
+      <tr>
+        <td>
+          <img src="icons/logo.png" alt="THARZ-37 Logo" class="logo" />
+        </td>
+        <td align="right">
+          <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>
+          <span class="nav-link" onclick="location.href='Projects.html'">Projects</span>  
+          <button class="contact" onclick="location.href='contact.html'">contact</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+ <div class="ShowcasePage">
+    
+  <h2>Light Follower: My First Engineering Project</h2>
+  
+  <div class="blog-row">
+    <div class="blog-column blog-column-text">
+      <h3>My First Year, My First Line of Code</h3>
+      <p>This project is a memory. It was my first year, and our team (Shahazad, Sidharth, Nakul, and I) had a mix of backgrounds. Sidharth and Nakul were from computer science, but Shahazad and I were from bio-maths. To make it more intimidating, I knew absolutely nothing about programming—I was a complete rookie. Shahazad, on the other hand, was already a master with previous project experience. I just assumed he would do all the coding and I would help.</p>
+      <p>That's not what happened. He gave me the Arduino and all the sensors, saying "Don't worry, you can do it. If any error occurs, ask GPT." He didn't know I didn't even know how to make a code work. But my ego wouldn't let me give up.</p>
+    </div>
+    <div class="blog-column blog-column-image">
+      <img src="images/light follwer .jpg" alt="Light Followa-er Robot">
+    </div>
+  </div>
+
+  <h3>The Build: How It Works</h3>
+  <p>I was determined to build it myself. I sat down and figured out the logic, purely hard-coded with minimal AI help. The concept is simple: compare the light from three LDRs to steer the bot. Here are the components and connections I used.</p>
+  
+  <pre>
+Components Required
+-------------------
+- Arduino Uno
+- L298N Motor Driver
+- 3 LDR Sensors (Light Dependent Resistors)
+- 2 BO Motors
+- Wheels & Chassis
+- 12V Battery / Power Supply
+- Jumper Wires
+
+Circuit Connections
+-------------------
+Component     Arduino Pin
+LDR Left      A0
+LDR Center    A1
+LDR Right     A2
+Motor ENA     9
+Motor IN1     8
+Motor IN2     7
+Motor ENB     10
+Motor IN3     6
+Motor IN4     5
+
+Working Principle
+-----------------
+1. The LDR sensors detect light intensity.
+2. The Arduino compares LDR values to find the brightest direction.
+3. Motors are controlled via the L298N driver:
+   - Move Forward: Center LDR gets the most light.
+   - Turn Left: Left LDR gets more light.
+   - Turn Right: Right LDR gets more light.
+   - Stop: No significant light is detected.
+  </pre>
+
+  <div class="blog-row">
+    <div class="blog-column blog-column-image">
+      <img src="images/light-follower-wiring.jpg" alt="Light Follower Robot Wiring">
+    </div>
+    <div class="blog-column blog-column-text">
+      <h3>The Lesson: Just Try</h3>
+      <p>When I finally uploaded the code and the robot's wheels actually turned to follow my flashlight, I was so happy and proud. It was more than just a working project.</p>
+      <p>It was proof that even if you don't know anything about a subject, if you are determined to try, you can make it work. This first project, and the push from my teammates, is what started my whole journey.</p>
+      <p><strong>Teammates:</strong>
+      <br>- Shahazad Abdulla
+      <br>- Sidharth Sajith
+      <br>- Nakulkrishna Ajayan</p>
+      
+      <div style="text-align: left;"> 
+        <span class="github-button" onclick="location.href='https://github.com/Tharz37/light-following-bot'">
+          View Project on GitHub
+        </span>
+      </div>
+
+    </div>
+  </div>
+     
+</div> <footer>
+    © 2025 Tharz_37. All Rights Reserved.
+  </footer>
+
+<script>
+  // Your Matrix script (No changes)
+  const canvas = document.getElementById("matrixRain");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const characters = "0101010101$$++--==**@@##".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#a00505";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 60);
+
+  window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+</script>
+
+</body>
+</html>

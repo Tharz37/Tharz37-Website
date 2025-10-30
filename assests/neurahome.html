@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraHome | Tharz_37</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #a00505;
+      --card: #101010;
+      --btn: #222;
+      --btn-hover: #333;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 80px; 
+    }
+
+    #matrixRain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    /* --- NavBar (No changes) --- */
+    .NavBar {
+      background-color: var(--bg);
+      padding: 12px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-family: "Calibri New", sans-serif;
+      color: var(--text);
+    }
+    .NavBar table { width: 98%; }
+    .NavBar td { vertical-align: middle; }
+    .NavBar h1 { margin: 0; font-size: 20px; padding-left: 15px; }
+    .contact {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .contact:hover { background-color: grey; }    
+    .logo {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .logo:hover { transform: scale(1.1); }
+    .nav-link {
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 8px 16px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    /* --- BLOG LAYOUT STYLES --- */
+
+    .ShowcasePage {
+      min-height: 100vh; 
+      max-width: 1100px;
+      margin: 20px auto;
+      background-color: #101010cc;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    .ShowcasePage h2 {
+      text-align: center;
+      color: var(--accent);
+      border-bottom: 2px solid #555;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+
+    .ShowcasePage h3 {
+      color: #eee;
+      font-size: 26px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .ShowcasePage p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .ShowcasePage img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    
+    .blog-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .blog-column {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .blog-column img {
+      margin: 0;
+    }
+    
+    .blog-column-text {
+      padding: 0 10px;
+    }
+
+    .blog-column-text h3 {
+      margin-top: 0;
+    }
+
+    /* --- NEW PREFORMATTED TEXT STYLE --- */
+    /* This is for your technical details */
+    pre {
+      background-color: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      color: #ddd;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: auto; /* Allows horizontal scrolling if needed */
+    }
+
+    /* --- GITHUB BUTTON STYLE --- */
+    .github-button {
+      background-color: var(--accent);
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      text-align: center;
+      padding: 12px 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 16px;
+    }
+    .github-button:hover {
+      background-color: #a00505b0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-top: 1px solid #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      .ShowcasePage {
+        padding: 20px;
+        margin: 10px;
+      }
+      .ShowcasePage h2 {
+        font-size: 24px;
+      }
+      .ShowcasePage h3 {
+        font-size: 22px;
+      }
+      .blog-row {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrixRain"></canvas>
+
+  <div class="NavBar">
+    <table>
+      <tr>
+        <td>
+          <img src="icons/logo.png" alt="THARZ-37 Logo" class="logo" />
+        </td>
+        <td align="right">
+          <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>
+          <span class="nav-link" onclick="location.href='Projects.html'">Projects</span>  
+          <button class="contact" onclick="location.href='contact.html'">contact</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+ <div class="ShowcasePage">
+    
+  <h2>NeuraHome: Gesture and Natural Voice Control</h2>
+  
+  <div class="blog-row">
+    <div class="blog-column blog-column-text">
+      <h3>No Wake Word, Just Real Conversation</h3>
+      <p>Most "smart" homes aren't very smart. You have to use a specific app or shout a specific "wake word" like "Hey..." to get anything done. We wanted to build something better.</p>
+      <p>Our idea for <strong>NeuraHome</strong> was simple: create an automation system that understands you naturally. You can control it with a wave of your hand, or just by talking. The best part? No special keywords. Just talk, and it understands.</p>
+    </div>
+    <div class="blog-column blog-column-image">
+      <img src="images/neurahome.png" alt="NeuraHome Project Setup">
+    </div>
+  </div>
+
+  
+
+    <div class="blog-row">
+    <div class="blog-column blog-column-text">
+      <h3>The Tech: Gemini, OpenCV, and ESP32</h3>
+      The magic behind the "no wake word" feature is the <strong>Gemini API</strong>. The system actively listens, and instead of waiting for a keyword, it processes the natural language to understand the *intent*. This means "illuminate the room," "lights on," and "bright the room" all correctly trigger the same "LED ON" command.</p>
+  <p>Simultaneously, a Python script using <strong>OpenCV</strong> and <strong>MediaPipe</strong> watches a camera feed. It recognizes specific hand gestures to control the fan, LED lights, and even video playback. All these commands are sent via WebSockets to an <strong>ESP32</strong>, which acts as the central hub, controlling the hardware and updating a live web interface with the device status.
+    </div>
+    <div class="blog-column blog-column-image">
+      <img src="images/neurahome-cv-demo.jpg" alt="OpenCV Gesture Recognition"></p>
+    </div>
+  </div>
+
+    
+
+
+  <h3>Technical Details & Setup</h3>
+  <p>For those interested in the architecture, here is the complete project structure and setup guide.</p>
+  
+  <pre>
+Project Structure
+-----------------
+Home Automation/
+├── Main_code/      # Main Arduino code for ESP32
+│   └── website/    # Web interface for control and status
+├── CVandVoice/     # Code for gesture and voice control
+└── WS_test/
+    ├── esp32/      # WebSocket test code for ESP32
+    └── Python/     # WebSocket test code for Python
+
+Requirements
+------------
+Hardware:
+- ESP32
+- Microphone
+- Camera
+
+Software:
+- Arduino IDE
+- Python 3.x
+- Libraries:
+  - pip install opencv-python
+  - pip install mediapipe
+  - pip install SpeechRecognition
+  - pip install google-generativeai
+  - pip install websocket-client
+  - pip install requests
+  - pip install pyaudio
+
+Setup Instructions
+------------------
+1. ESP32 Setup:
+   - Open Main_code/Main_code.ino and upload to your ESP32.
+   - Ensure ESP32 is on the same Wi-Fi as your computer.
+
+2. Python Setup:
+   - Install all libraries from the list above.
+   - Set your Gemini API key in the Speech.py file.
+   - Run Speech.py for voice control.
+   - Run openCV.py for gesture control.
+
+3. Web Interface:
+   - Open website/web.html in a browser to control and view status.
+  </pre>
+
+  <div class="blog-row">
+    <div class="blog-column blog-column-text">
+      <h3>The Team and Final Result</h3>
+      <p>This was a fantastic system integration project. We successfully combined generative AI, computer vision, and IoT hardware into a single, seamless system.</p>
+      <p>This was a full team effort, and I'd like to credit my teammates:
+      <br><strong>- Shahazad Abdulla</strong>
+      <br><strong>- Sidharth Sajith</strong>
+      <br>
+      Together, we built a truly modern smart home prototype.</p>
+      <span class="github-button" onclick="location.href='https://github.com/Tharz37/embedded-systems-home-automation'">
+      View Project on GitHub
+    </span>
+
+    </div>
+  </div>
+     
+</div> <footer>
+    © 2025 Tharz_37. All Rights Reserved.
+  </footer>
+
+<script>
+  // Your Matrix script (No changes)
+  const canvas = document.getElementById("matrixRain");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const characters = "0101010101$$++--==**@@##".split("");
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#a00505";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 60);
+
+  window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  });
+</script>
+
+</body>
+</html>
