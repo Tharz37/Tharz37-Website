@@ -1,18 +1,4 @@
 
-can you make a readme.md... details are here
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 🌐 Tharun's Personal Portfolio
 
 
