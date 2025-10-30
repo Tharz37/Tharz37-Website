@@ -115,31 +115,20 @@ Tharz37-Website/
 
 
 
-| File / Folder | Purpose |
+| 📁 **File / Folder** | 🧭 **Purpose**                                                          |
+| -------------------- | ----------------------------------------------------------------------- |
+| **index.html**       | Main website – includes landing page, skills, certifications, and more. |
+| **Projects.html**    | Dedicated gallery showcasing all your projects.                         |
+| **contact.html**     | Contact form page powered by **FormSubmit** for easy message handling.  |
+| **thanks.html**      | Redirect page displayed after successful form submission.               |
+| **googleXXXX.html**  | Verification file for **Google Search Console** ownership.              |
+| **LICENSE**          | Contains the **MIT License** declaration.                               |
+| **README.md**        | You’re reading it right now 😉                                          |
+| **assets/**          | Contains all static resources and blog-related HTML files.              |
+| **assets/images/**   | Stores all images — profile photos, CAD renders, and project visuals.   |
+| **assets/icons/**    | Custom **SVG logo** and **favicon.ico** files.                          |
+| **assets/*.html**    | Individual project blog post pages.                                     |
 
-|---|---|
-
-| `index.html` | Main website: landing page, skills, certifications, etc. |
-
-| `Projects.html` | Dedicated projects gallery |
-
-| `contact.html` | Contact form powered by FormSubmit |
-
-| `thanks.html` | Thank you redirect page after form submission |
-
-| `googleXXXX.html` | Google Search Console verification |
-
-| `LICENSE` | MIT License declaration |
-
-| `README.md` | This file 😉 |
-
-| `assests/` | All static resources and project blog pages |
-
-| `assests/images/` | All profile, CAD, and project images |
-
-| `assests/icons/` | Custom logo (SVG) and favicon.ico |
-
-| `assests/*.html` | Individual project blog post pages |
 
 
 
