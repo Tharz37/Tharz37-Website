@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+    <title>LOG_02: NEURAHOME | THARZ_37</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --rb-navy: #000c17; --rb-red: #e10600; --rb-gold: #f5b002;
+            --border: rgba(255, 255, 255, 0.08); --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--rb-navy); color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1;
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 6%; background: rgba(0, 12, 23, 0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border); position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        .logo img { height: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; }
+
+        .project-hero {
+            height: 80vh; display: grid; grid-template-columns: 1.3fr 0.7fr;
+            align-items: center; padding: 0 8%; padding-top: 80px; gap: 40px;
+        }
+        h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 6vw, 4.5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
+        h1 span { color: var(--rb-red); }
+        .log-id { color: var(--rb-gold); font-weight: 900; letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+
+        .chassis-frame { position: relative; width: 100%; height: 350px; border: 1px solid var(--border); background: var(--glass); }
+        .chassis-frame img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 90%; width: auto; filter: drop-shadow(0 20px 30px #000); }
+        
+        .telemetry-strip {
+            display: flex; background: rgba(225, 6, 0, 0.1); border-top: 1px solid var(--rb-red);
+            border-bottom: 1px solid var(--rb-red); padding: 20px 8%; justify-content: space-between;
+        }
+        .stat-item { text-align: left; min-width: 100px; }
+        .stat-item label { font-size: 0.6rem; color: var(--rb-gold); font-weight: 900; text-transform: uppercase; display: block; }
+        .stat-item span { font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; text-transform: uppercase; }
+
+        .content-section { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 60px; }
+        
+        .side-specs { background: var(--glass); border: 1px solid var(--border); padding: 30px; height: fit-content; position: sticky; top: 120px; }
+        .side-specs h4 { font-family: 'Archivo Black', sans-serif; color: var(--rb-gold); margin-bottom: 20px; font-size: 0.9rem; }
+        
+        pre { background: #000; border: 1px solid var(--border); padding: 15px; font-family: monospace; font-size: 0.7rem; color: #a0aec0; overflow-x: auto; border-left: 2px solid var(--rb-red); }
+
+        .main-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 2rem; margin-bottom: 25px; color: var(--rb-red); text-transform: uppercase; }
+        .main-text p { color: #cbd5e0; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; }
+
+        .btn-view {
+            display: inline-block; padding: 12px 25px; border: 1px solid var(--rb-gold); color: var(--rb-gold);
+            text-decoration: none; font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin-top: 20px; transition: 0.3s;
+        }
+        .btn-view:hover { background: var(--rb-gold); color: #000; }
+
+        footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); font-size: 0.7rem; color: #444; letter-spacing: 2px; }
+
+        @media (max-width: 900px) {
+            .project-hero { grid-template-columns: 1fr; height: auto; padding-top: 120px; text-align: center; }
+            .chassis-frame { height: 250px; margin: 0 auto; max-width: 90%; }
+            .telemetry-strip { overflow-x: auto; gap: 40px; justify-content: flex-start; }
+            .content-section { grid-template-columns: 1fr; }
+            .side-specs { position: relative; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
+    <div class="nav-links">
+        <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
+        <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
+    </div>
+</nav>
+<section class="project-hero">
+    <div class="hero-left">
+        <span class="log-id">LOG_02 // AI_SMART_SYSTEMS</span>
+        <h1>NEURAHOME<br><span>VOICE & CV</span> LOGIC</h1>
+    </div>
+    <div class="hero-right">
+        <div class="chassis-frame">
+            <img src="images/neurahome.png" alt="NeuraHome Hub">
+        </div>
+    </div>
+</section>
+
+<div class="telemetry-strip">
+    <div class="stat-item"><label>AI CORE</label><span>GEMINI API</span></div>
+    <div class="stat-item"><label>VISION</label><span>OPENCV</span></div>
+    <div class="stat-item"><label>PROTOCOL</label><span>WEBSOCKETS</span></div>
+    <div class="stat-item"><label>HARDWARE</label><span>ESP-32</span></div>
+</div>
+
+<section class="content-section">
+    <aside class="side-specs">
+        <h4>TECH_STACK</h4>
+        <pre>
+[LIB_REQ]
+- mediapipe
+- google-generativeai
+- websocket-client
+- pyaudio
+
+[HARDWARE]
+- ESP32 (Wi-Fi Station)
+- Mic Array
+- HD Webcam
+        </pre>
+        <a href="https://github.com/Tharz37/embedded-systems-home-automation" class="btn-view">GITHUB SOURCE</a>
+    </aside>
+
+    <main class="main-text">
+        <h2>No Wake Word. Just Intent.</h2>
+        <p>Most smart homes require rigid commands like "Hey Google". NeuraHome uses <strong>Generative AI (Gemini)</strong> to understand natural intent. Phrases like "It's too dark in here" or "Illuminate the room" both trigger the same LED_ON command via semantic understanding.</p>
+
+        <div class="chassis-frame" style="height: 500px; margin-bottom: 30px;">
+             <img src="images/neurahome-cv-demo.jpg" alt="CV Demo" style="height: 100%; width: 100%; object-fit: cover;">
+        </div>
+
+        <h2>Multi-Modal Control</h2>
+        <p>The system is a hybrid. A Python script runs MediaPipe for <strong>Hand Gesture Recognition</strong> while simultaneously listening for voice input. All commands are routed via WebSockets to the ESP32, which handles the physical switching of fans and lights.</p>
+        
+        <p><strong>Team:</strong> Shahazad Abdulla, Sidharth Sajith</p>
+    </main>
+</section>
+
+<footer>
+    © 2025 THARZ_37 | ALL RIGHTS RESERVED
+</footer>
+
+</body>
+</html>

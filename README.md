@@ -1,111 +1,58 @@
+# 🌐 THARZ_37 | Engineering Portfolio
 
-# 🌐 Tharun's Personal Portfolio
+![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-success?style=for-the-badge)
+![Tech](https://img.shields.io/badge/BUILT_WITH-HTML_CSS-blue?style=for-the-badge)
+![Theme](https://img.shields.io/badge/THEME-BLUEPRINT-orange?style=for-the-badge)
 
-
-
-Welcome to my personal portfolio — **built from scratch** using only **HTML** and **CSS** (and a lot of midnight brainwaves 😅). No frameworks, no builders — just code, creativity, and caffeine ☕.
-
-
-
----
-
-
-
-## 🧠 About This Project
-
-
-
-This portfolio website is a **central hub** for everything I do as a Robotics & Automation Engineering student.  
-
-It reflects my skills in:
-
-
-
-- ✅ CAD Design (Fusion 360, Solid Edge, Ansys)
-
-- ✅ Embedded Systems (Arduino, ESP32)
-
-- ✅ Python Programming
-
-- ✅ Web Development (HTML, CSS, JS)
-
-- ✅ AI Integration and Automation
-
-
-
-The site is responsive, clean, and optimized for **professional visibility**, **GitHub Pages hosting**, and **Google Search indexing**.
-
-
+Welcome to my personal portfolio (Unit: **THARZ_37**).
+This site is built from scratch using raw **HTML5 & CSS3**—no frameworks, just pure engineering logic. The design follows a **"Mechanical Blueprint"** aesthetic, featuring telemetry data, grid layouts, and "Mission Logs" for my projects.
 
 ---
 
+## 🧠 System Architecture
 
+This portfolio serves as the central hub for my work as a **Robotics & Automation Engineering Student**. It is optimized for:
+
+- ✅ **Professional Visibility:** Clean code, fast load times.
+- ✅ **Blueprint UI:** Dark Navy theme with technical grid overlays.
+- ✅ **Project Archiving:** Detailed "Mission Logs" for every engineering build.
+- ✅ **SEO:** Integrated Google Analytics & Search Console.
+
+---
 
 ## ✨ Features
 
-
-
-- 🔥 Fully responsive (mobile, tablet, and desktop)
-
-- 🌑 Dark-themed UI (because light mode is illegal here 😎)
-
-- 📜 Embedded Google Drive certificate previews
-
-- 📁 CAD models linked via Fusion 360 viewer
-
-- 🖼️ Images & assets organized under `/assests/`
-
-- 🚀 Deployed using **GitHub Pages**
-
-- 📊 Google Analytics + Search Console integrated
-
-
+- 🌑 **Dark Mode Native:** Designed with a custom navy/gold/red palette (`--rb-navy`).
+- 📱 **Mobile Responsive:** Stacked layouts and scrollable telemetry strips for phones.
+- 📂 **Project Mission Logs:** Individual HTML pages for deep-dives into projects.
+- 🔗 **CAD Integration:** Direct links to Fusion 360 & GitHub repositories.
+- 🚀 **Deployed:** Hosted live via **GitHub Pages**.
 
 ---
 
-
-
-## 📁 Project Structure
-
-
+## 📁 File Structure Map
 
 ```bash
-
 Tharz37-Website/
-
-├── index.html
-
-├── Projects.html
-
-├── contact.html
-
-├── thanks.html
-
-├── 404.html
-
-├── LICENSE
-
-├── README.md
-
-├── google56657cc4f6fa9002.html
-
-├── assests/                     # All static resources AND project blogs
-
-│   ├── icons/
-
-│   ├── images/
-
-│   ├── manifest/
-
-│   ├── ai home automation.html
-
-│   ├── Autonomous braking mechanism.html
-
-│   ├── lightfollower.html
-
-│   ├── neurahome.html
-
-│   └── pid balancing robot.html
+├── index.html                   # Main Dashboard (Landing Page)
+├── Projects.html                # Project Archive (Mission Logs)
+├── contact.html                 # Secure Contact Form
+├── thanks.html                  # Submission Success Page
+├── 404.html                     # Custom Error Page
+├── LICENSE                      # MIT License
+├── README.md                    # System Documentation
+├── google56657cc4f6fa9002.html  # Search Console Verification
+│
+└── assets/                      # [UPDATED] Static Resource Directory
+    ├── icons/                   # Favicons and Logos
+    ├── images/                  # Project photos, circuit diagrams, renders
+    │
+    │   # --- PROJECT LOG FILES ---
+    ├── ai home automation.html
+    ├── Autonomous braking mechanism.html
+    ├── lightfollower.html
+    ├── neurahome.html
+    └── pid balancing robot.html
 
 ````
 

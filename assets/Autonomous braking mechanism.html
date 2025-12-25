@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico" />
+    <title> LOG_01-Baja | THARZ_37</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --rb-navy: #000c17; --rb-red: #e10600; --rb-gold: #f5b002;
+            --border: rgba(255, 255, 255, 0.08); --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--rb-navy); color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+        /* Blueprint Grid */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1;
+        }
+
+        /* --- NAVIGATION --- */
+         nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 6%; background: rgba(0, 12, 23, 0.95);
+            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        .logo img { height: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; letter-spacing: 1px; }
+
+
+        /* --- HERO SECTION --- */
+        .project-hero {
+            height: 80vh; display: grid; grid-template-columns: 1.3fr 0.7fr;
+            align-items: center; padding: 0 8%; padding-top: 80px; gap: 40px;
+        }
+
+        h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 6vw, 4.5rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
+        h1 span { color: var(--rb-red); }
+        .log-id { color: var(--rb-gold); font-weight: 900; letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+
+        /* Pop-out Mechanical Visual */
+        .chassis-frame { position: relative; width: 100%; height: 350px; border: 1px solid var(--border); background: var(--glass); }
+        .chassis-frame img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 90%; width: auto; filter: drop-shadow(0 20px 30px #000); }
+        .chassis-frame::after { content: ""; position: absolute; bottom: -10px; right: -35px; width: 60px; height: 60px; border-bottom: 4px solid var(--rb-red); border-right: 4px solid var(--rb-red); }
+
+        /* --- TELEMETRY / STATS BAR --- */
+        .telemetry-strip {
+            display: flex; background: rgba(225, 6, 0, 0.1); border-top: 1px solid var(--rb-red);
+            border-bottom: 1px solid var(--rb-red); padding: 20px 8%; justify-content: space-between;
+        }
+        .stat-item { text-align: left; min-width: 120px; }
+        .stat-item label { font-size: 0.6rem; color: var(--rb-gold); font-weight: 900; text-transform: uppercase; display: block; }
+        .stat-item span { font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; text-transform: uppercase; }
+
+        /* --- TECHNICAL CONTENT LAYOUT --- */
+        .content-section { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 60px; }
+        
+        .side-specs { background: var(--glass); border: 1px solid var(--border); padding: 30px; height: fit-content; position: sticky; top: 120px; }
+        .side-specs h4 { font-family: 'Archivo Black', sans-serif; color: var(--rb-gold); margin-bottom: 20px; font-size: 0.9rem; }
+        .side-specs ul { list-style: none; }
+        .side-specs li { font-size: 0.8rem; color: #a0aec0; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .main-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 2rem; margin-bottom: 25px; color: var(--rb-red); text-transform: uppercase; }
+        .main-text p { color: #cbd5e0; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; }
+
+        /* IMAGE GALLERY GRID */
+        .mechanism-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+        .mech-card { background: #000; border: 1px solid var(--border); padding: 10px; text-align: center; transition: 0.3s; }
+        .mech-card:hover { border-color: var(--rb-gold); }
+        .mech-card img { width: 100%; height: 150px; object-fit: cover; margin-bottom: 15px; }
+        .cad-btn { font-size: 0.6rem; color: var(--rb-gold); text-decoration: none; border: 1px solid var(--rb-gold); padding: 5px 10px; display: inline-block; }
+
+        footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); font-size: 0.7rem; color: #444; letter-spacing: 2px; }
+
+        /* --- MOBILE SCALE --- */
+        @media (max-width: 900px) {
+            .project-hero { grid-template-columns: 1fr; padding-top: 120px; height: auto; text-align: center; }
+            .chassis-frame { height: 250px; margin: 0 auto; max-width: 90%; }
+            .chassis-frame img { height: 120%; }
+            
+            /* Make telemetry scroll sideways if it doesn't fit */
+            .telemetry-strip { overflow-x: auto; gap: 30px; justify-content: flex-start; }
+            
+            .content-section { grid-template-columns: 1fr; padding: 40px 6%; }
+            .side-specs { position: relative; top: 0; margin-bottom: 40px; }
+            
+            .mechanism-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
+    <div class="nav-links">
+        <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
+        <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
+    </div>
+</nav>
+<section class="project-hero">
+    <div class="hero-left">
+        <span class="log-id">LOG_01 // MECHANICAL_ENGINEERING</span>
+        <h1>AUTONOMOUS<br><span>BRAKING</span><br>SYSTEM</h1>
+    </div>
+    <div class="hero-right">
+        <div class="chassis-frame">
+            <img src="../assets/images/baja vehicle.jpg" alt="Baja Vehicle Visual">
+        </div>
+    </div>
+</section>
+
+<div class="telemetry-strip">
+    <div class="stat-item"><label>FORCE_REQ</label><span>1000 N</span></div>
+    <div class="stat-item"><label>MECH_ADVANTAGE</label><span>10:01</span></div>
+    <div class="stat-item"><label>SPACE_ENVELOPE</label><span>60x30 CM</span></div>
+</div>
+
+<section class="content-section">
+    <aside class="side-specs">
+        <h4>MECHANISM ANALYSIS</h4>
+        <ul>
+            <li>[01] Four-Bar Linkage</li>
+            <li>[02] Slider-Crank</li>
+            <li>[03] Bell Crank </li>
+            <li>[04] Scotch Yoke </li>
+            <li><strong>[SOL] PULLEY SYSTEM</strong></li>
+        </ul>
+        
+    </aside>
+
+    <main class="main-text">
+        <h2>The Mission Objective</h2>
+        <p>During my tenure with Team Equinox (A-Baja SAE), myself and Rishikesh R were tasked with a high-stakes engineering challenge: a system capable of both autonomous and manual activation without failure. The primary obstacle was generating 1000N of force within an extremely restricted chassis envelope.</p>
+        
+        <h2>Evolution of Failure</h2>
+        <p>Innovation is iterative. We benchmarked and simulated four traditional mechanisms before reaching our final build. Each iteration failed due to simulation constraints:</p>
+        
+        <div class="mechanism-grid">
+            <div class="mech-card">
+                <img src="../assets/images/bell crank.png" alt="Bell Crank">
+                <span class="log-id" style="font-size:0.5rem;">V1: BELL_CRANK</span>
+                <a href="https://saintgits219.autodesk360.com/g/shares/SH90d2dQT28d5b602811a6c204261fe09736" class="cad-btn">CAD_VIEW</a>
+            </div>
+            <div class="mech-card">
+                <img src="../assets/images/pedal.png" alt="Linkage">
+                <span class="log-id" style="font-size:0.5rem;">V2: 4-BAR_LINKAGE with pedal</span>
+                <a href="https://saintgits219.autodesk360.com/g/shares/SH286ddQT78850c0d8a4b2cd1921569da914" class="cad-btn">CAD_VIEW</a>
+            </div>
+            <div class="mech-card">
+                <img src="../assets/images/Scotch yoke.png" alt="Scotch Yoke">
+                <span class="log-id" style="font-size:0.5rem;">V3: SCOTCH_YOKE</span>
+                <a href="https://saintgits219.autodesk360.com/g/shares/SH286ddQT78850c0d8a440a9b3e56e178078" class="cad-btn">CAD_VIEW</a>
+            </div>
+        </div>
+
+        <h2>Simultaneous Victory</h2>
+        <p>By returning to pure physics fundamentals, we engineered a <strong>Custom Pulley Assembly</strong>. This solution provided the required mechanical advantage while eliminating the vibration issues of the Slider-Crank and the torque-failure of the Bell Crank. This optimization directly contributed to the team securing <strong>AIR_7 & Kerala Rank 2nd</strong>.</p>
+        
+        <div class="chassis-frame" style="height:500px; margin-top: 30px;">
+            <img src="../assets/images/baja victory.jpg" style="height:100%;" alt="Victory">
+        </div>
+    <button onclick="location.href='https://www.linkedin.com/company/abaja-saintgits/'" style="width:100%; background: var(--rb-red); border:none; color:#fff; padding:10px; font-size:0.7rem; margin-top:20px; font-weight:900; cursor:pointer;">Team's LinkedIN page</button>
+    </main>
+</section>
+
+<footer>
+    © 2025 THARZ_37 | Equinox Baja Team | ALL RIGHTS RESERVED
+</footer>
+
+</body>
+</html>

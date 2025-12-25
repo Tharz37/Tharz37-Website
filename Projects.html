@@ -1,341 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="assests/icons/favicon.ico" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Tharz_37</title>
-  <style>
-    :root {
-      --bg: #000000;
-      --text: #ffffff;
-      --accent: #a00505;
-      --card: #101010;
-      --btn: #222;
-      --btn-hover: #333;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', sans-serif;
-    }
-    #matrixRain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-    }
-
-    /* --- NavBar (No Changes) --- */
-    .NavBar {
-      background-color: var(--bg);
-      padding: 12px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-top: 1px solid #555;
-      border-bottom: 1px solid #555;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-      font-size: 16px;
-      font-family: "Calibri New", sans-serif;
-      color: var(--text);
-    }
-    .NavBar table { width: 98%; }
-    .NavBar td { vertical-align: middle; }
-    .NavBar h1 { margin: 0; font-size: 20px; padding-left: 15px; }
-    .contact {
-      background-color: white;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .contact:hover { background-color: grey; }    
-    .logo {
-      height: 40px;
-      width: auto;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      vertical-align: middle;
-    }
-    .logo:hover { transform: scale(1.1); }
-    .nav-link {
-      color: var(--text);
-      font-size: 16px;
-      cursor: pointer;
-      padding: 8px 16px;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    /* --- Main Page Container --- */
-    .ShowcasePage {
-      margin: 8px auto;
-      background-color: #101010cc;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      /* Added padding to clear fixed navbar */
-      padding-top: 100px; 
-    }
-
-    .ShowcasePage h2 {
-      text-align: center;
-      color: var(--accent);
-      border-bottom: 2px solid #555;
-      padding-bottom: 15px;
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-
-    /* --- NEW Project List Styles --- */
-    .project-list-item {
-      display: flex;
-      background-color: var(--card);
-      border-radius: 12px;
-      margin: 30px auto; /* Spacing between items */
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      overflow: hidden; /* To contain the image */
-      transition: transform 0.2s, box-shadow 0.2s;
-      max-width: 900px; /* REDUCED width from 1000px */
-      border: 1px solid #222;
-    }
-    .project-list-item:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px rgba(160, 5, 5, 0.5); /* Accent shadow on hover */
-    }
-
-    .project-list-text {
-      flex-basis: 60%; /* INCREASED from 55% */
-      padding: 25px 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    
-    .project-list-text h3 {
-      color: #fff;
-      margin-top: 0;
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
-
-    .project-list-text p {
-      color: #ccc;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    .project-list-image {
-      flex-basis: 40%; /* REDUCED from 45% */
-      min-height: 320px; /* INCREASED length from 300px */
-    }
-    
-    .project-list-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* This is key to making it look good */
-      display: block;
-    }
-
-    /* --- Button Style (Unchanged) --- */
-    .button-link {
-      background-color: #a00505;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 15px;
-      display: inline-block;
-      transition: background-color 0.3s;
-      text-decoration: none; /* Added for button links */
-      text-align: center;
-    }
-    .button-link:hover {
-      background-color: #a0050574;
-      color: white;
-    }
-
-    /* --- Services (Unchanged) s--- */
-    .Service {
-      margin: 40px auto;
-      background-color: #101010;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-      max-width: 900px; /* Matched new project width */
-    }
-    .Service ul { padding-left: 20px; }
-    .Service li { margin-bottom: 8px; }
-    
-    /* --- Footer (Unchanged) --- */
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 15px;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-top: 1px solid #555;
-    }
-
-    @media screen and (max-width: 768px) {
-      .ShowcasePage {
-        padding-top: 80px;
-      }
-      
-      /* --- NEW Responsive Project List --- */
-      .project-list-item {
-        /* Image on top, Text on bottom */
-        flex-direction: column-reverse; 
-      }
-
-      .project-list-image {
-        min-height: 200px; /* Adjust height for mobile */
-        flex-basis: auto; /* Reset flex-basis */
-      }
-
-      .project-list-text {
-        padding: 25px;
-        flex-basis: auto; /* Reset flex-basis */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <title>PROJECT ARCHIVE | THARZ_37</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rb-navy: #000c17;
+            --rb-red: #e10600; 
+            --rb-gold: #f5b002;
+            --border: rgba(255, 255, 255, 0.08); 
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--rb-navy); 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.5;
+        }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px), 
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -1;
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 6%; background: rgba(0, 12, 23, 0.95);
+            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        .logo img { height: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; letter-spacing: 1px; }
+        .header-section {
+            padding: 140px 8% 40px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, rgba(225, 6, 0, 0.05), transparent);
+        }
+        .header-section h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 8vw, 4rem); text-transform: uppercase; line-height: 1; }
+        .header-section h1 span { color: var(--rb-red); }
+        .subtitle { color: var(--rb-gold); font-weight: 900; font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .project-container { padding: 40px 8%; max-width: 1400px; margin: 0 auto; }
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            margin-bottom: 60px;
+            position: relative;
+            transition: 0.4s ease;
+        }
+        .project-card:hover { border-color: var(--rb-red); transform: translateX(10px); }
+        .project-image { 
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            border-right: 1px solid var(--border);
+            min-height: 300px;
+        }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+        .project-card:hover .project-image img { opacity: 1; scale: 1.05; }
+        .project-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .project-content .id { color: var(--rb-red); font-family: monospace; font-weight: 900; font-size: 0.7rem; margin-bottom: 10px; }
+        .project-content h3 { font-family: 'Archivo Black', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 15px; border-left: 4px solid var(--rb-red); padding-left: 15px; }
+        .project-content p { color: #a0aec0; font-size: 1rem; margin-bottom: 25px; line-height: 1.6; }
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .tech-stack span { font-size: 0.65rem; font-weight: 900; background: rgba(255,255,255,0.05); padding: 5px 12px; border: 1px solid var(--border); text-transform: uppercase; color: var(--rb-gold); }
+        .btn-view {
+            width: fit-content; text-decoration: none; padding: 12px 30px;
+            background: transparent; border: 1px solid var(--rb-gold); color: var(--rb-gold);
+            font-size: 0.8rem; font-weight: 900; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-view:hover { background: var(--rb-gold); color: #000; }
+        .collaborate { 
+            margin: 60px 8%; padding: 60px; text-align: center; 
+            border: 1px solid var(--rb-red); background: linear-gradient(45deg, #00101d, #110000); 
+        }
+        .collaborate h2 { font-family: 'Archivo Black', sans-serif; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px; }
+        @media (max-width: 900px) {
+            .header-section { padding: 120px 6% 30px; }
+            .project-card { grid-template-columns: 1fr; transform: none !important;}
+            .project-card:hover { transform: translateY(-5px) !important; } 
+            .project-image { height: 250px; min-height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+            .project-content { padding: 30px 20px; }
+            .project-content h3 { font-size: 1.5rem; }
+            .collaborate { padding: 30px 20px; margin: 40px 5%; }
+            .collaborate h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-  <canvas id="matrixRain"></canvas>
-
-  <div class="NavBar">
-    <table>
-      <tr>
-        <td>
-          <img src="assests/icons/logo.png" alt="THARZ-37 Logo" class="logo" />
-        </td>
-        <td align="right">
-          <span class="nav-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Home</span>  
-          <button class="contact" onclick="location.href='contact.html'">contact</button>
-          </td>
-      </tr>
-    </table>
-  </div>
-
-
- <div class="ShowcasePage">
-  <h2>Major Projects I have Done</h2>
-
-  <div class="project-list-item">
-    <div class="project-list-text">
-      <h3>Mechanism for Autonomous Braking [A-Baja]</h3>
-      <p>Designed a compact, high-force (1000N) braking mechanism for an autonomous buggy, navigating severe space and mechanical advantage constraints.</p>
-      <button class="button-link" onclick="location.href='assests/Autonomous braking mechanism.html'"><strong>View</strong></button>
+    <nav>
+        <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
+        <div class="nav-links">
+            <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
+            <a href="https://tharz37.github.io/Tharz37-Website/contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="header-section">
+        <span class="subtitle">// MISSION LOGS</span>
+        <h1>PROJECT <span>ARCHIVE</span></h1>
+    </section>
+    <div class="project-container">
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/images/pedal.png" alt="Autonomous Braking">
+            </div>
+            <div class="project-content">
+                <span class="id">TASK_SESSION: 01 // MECHANICAL</span>
+                <h3>Autonomous Braking Mechanism</h3>
+                <p>Designed a compact, high-force (1000N) braking mechanism for an autonomous buggy. Focused on severe space constraints and mechanical advantage optimization for A-Baja SAE Buggy.</p>
+                <div class="tech-stack">
+                    <span>Fusion 360</span><span>Structural Mechanics</span>
+                </div>
+                <a href="assets/Autonomous braking mechanism.html" class="btn-view">View Data Log →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/images/neurahome.png" alt="NeuraHome">
+            </div>
+            <div class="project-content">
+                <span class="id">TASK_SESSION: 02 // AI & SMART SYSTEMS</span>
+                <h3>NeuraHome</h3>
+                <p>Next-gen home automation merging hand-gesture computer vision with intent-based voice control. Built on ESP32 architecture with customized AI models.</p>
+                <div class="tech-stack">
+                    <span>Python</span><span>ESP32</span><span>OpenCV</span><span>AI Intent Recognition</span>
+                </div>
+                <a href="assets/neurahome.html" class="btn-view">View Data Log →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/images/balancing bot pid.jpg" alt="Balancing Robot">
+            </div>
+            <div class="project-content">
+                <span class="id">TASK_SESSION: 03 // CONTROL THEORY</span>
+                <h3>Self Balancing Robot</h3>
+                <p>Real-time stabilizer bot using PID feedback loops. Simulates inverted pendulum dynamics using IMU sensors and high-speed motor execution.</p>
+                <div class="tech-stack">
+                    <span>PID Logic</span><span>Aries V3</span><span>Embedded C++</span><span>Sensor Fusion</span>
+                </div>
+                <a href="assets/pid balancing robot.html" class="btn-view">View Data Log →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/images/gesture-home-circuit.jpg" alt="Gesture Circuit">
+            </div>
+            <div class="project-content">
+                <span class="id">TASK_SESSION: 04 // AUTOMATION</span>
+                <h3>CV-Gesture Interface</h3>
+                <p>Developing a hardware-software bridge that translates hand motions in air into electrical relay commands for real-world appliance control.</p>
+                <div class="tech-stack">
+                    <span>Arduino Uno</span><span>OpenCV</span>
+                </div>
+                <a href="assets/ai home automation.html" class="btn-view">View Data Log →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/images/light follwer .jpg" alt="Light Follower">
+            </div>
+            <div class="project-content">
+                <span class="id">TASK_SESSION: 05 // SENSOR LOGIC</span>
+                <h3>Light Following Bot</h3>
+                <p>Entry-level autonomous robotics platform designed to maximize phototropic response using analog sensor arrays and logic steering.</p>
+                <div class="tech-stack">
+                    <span>Analog Sensors</span><span>Motor Drivers</span><span>Arduino</span>
+                </div>
+                <a href="assets/lightfollower.html" class="btn-view">View Data Log →</a>
+            </div>
+        </div>
     </div>
-    <div class="project-list-image">
-      <img src="assests/images/pedal.png" alt="A-Baja Braking Mechanism">
-    </div>
-  </div>
-
-  <div class="project-list-item">
-    <div class="project-list-text">
-      <h3>NeuraHome</h3>
-      <p>Next-gen home automation with gesture + voice control using ESP32 and AI.</p>
-      <button class="button-link" onclick="location.href='assests/neurahome.html'"><strong>View</strong></button>
-    </div>
-    <div class="project-list-image">
-      <img src="assests/images/neurahome.png" alt="NeuraHome Project">
-    </div>
-  </div>
-
-  <div class="project-list-item">
-    <div class="project-list-text">
-      <h3>Self Balancing Robot</h3>
-      <p>Two-wheeled robot with PID control for real-time balance, mimicking an inverted pendulum using sensors and feedback.</p>
-      <button class="button-link" onclick="location.href='assests/pid balancing robot.html'"><strong>View</strong></button>
-    </div>
-    <div class="project-list-image">
-      <img src="assests/images/balancing bot pid.jpg" alt="Self Balancing Robot">
-    </div>
-  </div>
-
-  <div class="project-list-item">
-    <div class="project-list-text">
-      <h3>Gesture Controlled Home Automation</h3>
-      <p>Designed a home automation system that detects hand gestures using OpenCV and Arduino Uno.</p>
-      <button class="button-link" onclick="location.href='assests/ai home automation.html'"><strong>View</strong></button>
-    </div>
-    <div class="project-list-image">
-      <img src="assests/images/gesture-home-circuit.jpg" alt="Gesture Controlled Home">
-    </div>
-  </div>
-
-  <div class="project-list-item">
-    <div class="project-list-text">
-      <h3>Light Following Bot</h3>
-      <p>Built a light-responsive two-wheel robot that dynamically follows the brightest light source using LDR sensors.</p>
-      <button class="button-link" onclick="location.href='assests/lightfollower.html'"><strong>View</strong></button>
-    </div>
-    <div class="project-list-image">
-      <img src="assests/images/light follwer .jpg" alt="Light Following Bot">
-    </div>
-  </div>
-
-</div> <div class="Service">
-  <h2>Services and Help</h2>
-  <p>If you'd like to request any of the following, send me your message below 👇</p>
-  <ul>
-    <li>🦾 CAD Design & Simulation</li>
-    <li>🕸️ Web Development</li>
-    <li>🧠 AI & LLM Integration</li>
-    <li>🤖 Engineering Projects</li>
-  </ul>
-<button class="button-link" onclick="location.href='contact.html'"><strong>contact</strong></button>
-</div>
-
-  <footer>
-    © 2025 Tharz_37. All Rights Reserved.
-  </footer>
-
-<script>
-  // Your Matrix script (No changes)
-  const canvas = document.getElementById("matrixRain");
-  const ctx = canvas.getContext("2d");
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-  const characters = "0101010101$$++--==**@@##".split("");
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = Array.from({ length: columns }).fill(1);
-
-  function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#a00505";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = characters[Math.floor(Math.random() * characters.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i]++;
-    }
-  }
-
-  setInterval(drawMatrix, 60);
-
-  window.addEventListener("resize", () => {
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-  });
-</script>
+    <section class="collaborate">
+        <span class="subtitle">READY TO LAUNCH?</span>
+        <h2>GET IN THE <span>GARAGE</span></h2>
+        <p style="color: #a0aec0; margin-bottom: 30px;">I'm available for CAD Simulation, AI integration, and core Engineering Project development.</p>
+        <a href="https://tharz37.github.io/Tharz37-Website/contact.html" class="btn-view" style="background: var(--rb-gold); color: #000;">Inquire Technical Support</a>
+    </section>
+    <footer>
+        <p style="text-align: center; padding: 40px; font-size: 0.7rem; color: #444; letter-spacing: 2px;">
+            © 2025 THARZ_37 | ALL RIGHTS RESERVED
+        </p>
+    </footer>
 </body>
 </html>

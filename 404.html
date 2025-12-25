@@ -1,43 +1,44 @@
-<!-- 404.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 | Tharz_37</title>
-  <style>
-    body {
-      background-color: black;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-    h1 {
-      font-size: 60px;
-      color: #a00505;
-    }
-    p {
-      font-size: 20px;
-      color: white;
-    }
-    .button-link {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #a00505;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <title>404 // SIGNAL LOST | THARZ_37</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rb-navy: #000c17;
+            --rb-red: #e10600;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            background-color: var(--rb-navy);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        h1 { font-family: 'Archivo Black', sans-serif; font-size: 5rem; margin-bottom: 0; color: var(--rb-red); line-height: 1; }
+        h2 { font-family: 'Archivo Black', sans-serif; font-size: 2rem; margin-bottom: 20px; color: #fff; text-transform: uppercase; }
+        p { color: #a0aec0; margin-bottom: 40px; }
+        .btn {
+            padding: 15px 30px; background: #fff; color: #000;
+            text-decoration: none; font-weight: 900; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn:hover { background: var(--rb-red); color: white; }
+    </style>
 </head>
 <body>
-  <h1>🛑 404</h1>
-  <p>Oops! you are truly lost buddy🤦🏻‍♂️...<br>Let me take you back....😉</p>
-  <button class="button-link" onclick="location.href='https://tharz37.github.io/Tharz37-Website/'">Back to Home</button>
+    <h1>404</h1>
+    <h2>Signal Lost</h2>
+    <p>COORDINATES_INVALID. THE PAGE YOU REQUESTED DOES NOT EXIST.</p>
+    <a href="https://tharz37.github.io/Tharz37-Website/" class="btn">Re-Initialize</a>
 </body>
 </html>
