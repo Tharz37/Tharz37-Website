@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
     <title>THARZ_37 | Portfolio</title>
+    
     <meta name="description" content="Official portfolio of Tharun Oommen Jacob - Robotics and Automation Engineer.">
     <meta name="author" content="Tharun Oommen Jacob">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z32DC7BLX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -14,8 +16,10 @@
         gtag('js', new Date());
         gtag('config', 'G-7Z32DC7BLX');
     </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --rb-navy: #00101d;
@@ -24,7 +28,9 @@
             --border: rgba(255, 255, 255, 0.1);
             --glass: rgba(255, 255, 255, 0.03);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--rb-navy);
             color: #ffffff;
@@ -32,6 +38,7 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
+
         body::before {
             content: "";
             position: fixed;
@@ -42,6 +49,7 @@
             background-size: 40px 40px;
             z-index: -1;
         }
+
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 6%;
@@ -50,20 +58,25 @@
             border-bottom: 1px solid var(--border);
             position: fixed; width: 100%; top: 0; z-index: 1000;
         }
+
         .logo-container img { height: 35px; }
         .nav-links a {
             color: white; text-decoration: none; margin-left: 20px;
             font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
         }
+
+        /* HERO SECTION (Desktop Default) */
         .hero {
             height: 100vh;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.2fr 0.8fr; /* 2 Columns for Laptop */
             align-items: center;
             padding: 0 8%;
             gap: 20px;
         }
+
         .hero-left { z-index: 2; }
+
         .hero-right {
             display: flex;
             justify-content: center;
@@ -71,6 +84,7 @@
             height: 80%;
             position: relative;
         }
+
         .image-chassis {
             position: relative;
             width: 100%;
@@ -79,6 +93,7 @@
             border: 1px solid var(--border);
             background: rgba(255,255,255,0.015);
         }
+
         .image-chassis img {
             position: absolute;
             bottom: 0;               
@@ -90,47 +105,83 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
             pointer-events: none;    
         }
+
         .image-chassis::before {
             content: "UNIT_THARZ_37"; position: absolute; top: -1px; left: 15px;
             background: var(--rb-red); color: white; padding: 2px 10px; font-size: 0.6rem; font-weight: 900;
         }
+
         .image-chassis::after {
             content: ""; position: absolute; bottom: -10px; right: -10px;
             width: 80px; height: 80px; border-bottom: 4px solid var(--rb-gold); border-right: 4px solid var(--rb-gold);
         }
+
         .hud-status {
             position: absolute; bottom: 20px; left: -30px;
             background: var(--rb-navy); border: 1px solid var(--rb-red);
             padding: 8px 12px; font-size: 0.65rem; z-index: 10; white-space: nowrap;
         }
+
         h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 0.9; text-transform: uppercase; margin-bottom: 20px; }
         h1 span { color: var(--rb-red); }
         .overline { color: var(--rb-gold); text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 10px; display: block; }
         .hero-description { color: #a3b1bc; max-width: 480px; border-left: 3px solid var(--rb-red); padding-left: 20px; margin-bottom: 30px; }
+
         .btn-racing {
             background: transparent; border: 1px solid var(--rb-gold); color: var(--rb-gold);
             padding: 12px 25px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s;
         }
         .btn-racing:hover { background: var(--rb-gold); color: var(--rb-navy); }
+
+        /* SECTIONS */
         .section-header { padding: 80px 8% 20px; display: flex; align-items: center; }
         .section-header h2 { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 2rem; margin-right: 20px; }
         .line { flex-grow: 1; height: 1px; background: var(--border); }
+
         .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 40px 8%; }
         .data-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; position: relative; transition: 0.4s; }
         .data-card:hover { border-color: var(--rb-red); transform: translateY(-5px); }
         .data-card::before { content: "ID: 00" attr(data-index); position: absolute; top: 10px; right: 10px; font-size: 0.6rem; color: var(--rb-gold); font-family: monospace; }
         .data-card h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; }
         .data-card li { list-style: none; color: #a3b1bc; font-size: 0.9rem; }
+
         .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 40px 8%; align-items: center; }
         .profile-frame img { width: 85%; border: 1px solid var(--border); border-radius: 8px;}
         .stat-bar-container { margin-bottom: 20px; }
         .stat-label { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
         .stat-track { height: 4px; background: #1a2632; overflow: hidden; }
         .stat-fill { height: 100%; background: var(--rb-red); box-shadow: 0 0 10px var(--rb-red); width: 0; transition: 2s cubic-bezier(0.16, 1, 0.3, 1); }
+
         footer { padding: 40px 8%; text-align: center; font-size: 0.8rem; color: #666; border-top: 1px solid var(--border); background: #00080f; }
+
+        /* MOBILE OPTIMIZATION START */
         @media screen and (max-width: 900px) {
+            
+            /* -- Navigation Fix for Mobile -- */
+            nav {
+                padding: 12px 4%;
+            }
+            .logo-container img {
+                height: 24px;
+            }
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin-left: 0 !important;
+                font-size: 0.6rem !important;
+                white-space: nowrap;
+                letter-spacing: 0.5px;
+            }
+            .nav-links a[style*="background"] {
+                padding: 6px 10px !important; 
+            }
+
+            /* -- Hero Section Stacked Layout -- */
             .hero {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Force 1 column on mobile */
                 height: auto;
                 padding-top: 120px;
                 padding-bottom: 50px;
@@ -139,140 +190,166 @@
             }
             .hero-left { order: 2; display: flex; flex-direction: column; align-items: center; }
             .hero-right { order: 1; width: 100%; justify-content: center; }
+            
             .image-chassis { height: 280px; max-width: 90%; }
             .image-chassis img { height: 110%; }
+            
             .hud-status {
                 bottom: -40px; left: 50%; transform: translateX(-50%);
                 text-align: center; width: auto;
             }
+            
             h1 { font-size: 3rem; }
             .hero-description { border-left: none; padding-left: 0; border-top: 3px solid var(--rb-red); padding-top: 20px; }
+            
             .about-section { grid-template-columns: 1fr; text-align: center; }
             .profile-frame img { width: 100%; margin-bottom: 30px; }
             .btn-group { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 300px; }
             .btn-racing { width: 100%; margin-right: 0; }
         }
+        /* MOBILE OPTIMIZATION END */
+
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo-container">
-            <img src="assets/icons/logo.png" alt="THARZ_37">
+
+<nav>
+    <div class="logo-container">
+        <img src="assets/icons/logo.png" alt="THARZ_37">
+    </div>
+    <div class="nav-links">
+        <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
+        <a href="https://tharz37.github.io/Tharz37-Website/contact.html" style="background: var(--rb-gold); color: black; padding: 8px 15px; border-radius: 2px;">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <span class="overline">Robotics & Automation Engineer</span>
+        <h1>Tharun<br><span>Oommen</span><br>Jacob</h1>
+        <p class="hero-description">
+            Building high-performance autonomous systems and mechanical structures with speed and precision.
+        </p>
+        <div class="btn-group">
+            <button class="btn-racing" style="background: var(--rb-red); color: white; border: none; margin-right: 5px;" onclick="window.open('https://github.com/Tharz37')">
+                <i class="fab fa-github"></i> GITHUB 
+            </button>
+            
+            <button class="btn-racing" style="background: #0077b5; color: white; border: none; margin-right: 5px;" onclick="window.open('https://www.linkedin.com/in/tharunoommenjacob0737/')">
+                <i class="fab fa-linkedin-in"></i> LINKEDIN
+            </button>
+
+            <button class="btn-racing" onclick="location.href='https://tharz37.github.io/Tharz37-Website/Projects.html'">
+                MISSION LOGS
+            </button>
         </div>
-        <div class="nav-links">
-            <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
-            <a href="https://tharz37.github.io/Tharz37-Website/contact.html" style="background: var(--rb-gold); color: black; padding: 8px 15px; border-radius: 2px;">Contact</a>
-        </div>
-    </nav>
-    <section class="hero">
-        <div class="hero-left">
-            <span class="overline">Robotics & Automation Engineer</span>
-            <h1>Tharun<br><span>Oommen</span><br>Jacob</h1>
-            <p class="hero-description">
-                Building high-performance autonomous systems and mechanical structures with speed and precision.
-            </p>
-            <div class="btn-group">
-                <button class="btn-racing" style="background: var(--rb-red); color: white; border: none; margin-right: 5px;" onclick="window.open('https://github.com/Tharz37')">
-                    <i class="fab fa-github"></i> GITHUB 
-                </button>
-                <button class="btn-racing" onclick="location.href='https://tharz37.github.io/Tharz37-Website/Projects.html'">
-                    MISSION LOGS
-                </button>
+    </div>
+
+    <div class="hero-right">
+        <div class="image-chassis">
+            <img src="assets/images/Tharun.png" alt="Tharun Oommen Jacob">
+            
+            <div class="hud-status">
+                <p style="color: var(--rb-red); font-weight: bold;">[ STATUS: OPERATIONAL ]</p>
+                <p style="color: #666; font-family: monospace; font-size: 0.35rem;">LAT: 9.53° N | LON: 76.62° E</p>
             </div>
         </div>
-        <div class="hero-right">
-            <div class="image-chassis">
-                <img src="assets/images/Tharun.png" alt="Tharun Oommen Jacob">
-                <div class="hud-status">
-                    <p style="color: var(--rb-red); font-weight: bold;">[ STATUS: OPERATIONAL ]</p>
-                    <p style="color: #666; font-family: monospace; font-size: 0.35rem;">LAT: 9.53° N | LON: 76.62° E</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="section-header">
-        <h2>Systems Intelligence</h2>
-        <div class="line"></div>
     </div>
-    <section class="telemetry-grid">
-        <div class="data-card" data-index="1">
-            <h3>Mechanical / CAD</h3>
-            <li>- SolidWorks</li>
-            <li>- Fusion 360 </li>
-	    <li>- Ansys</li>
-            <li>- Altair Hyperworks</li>
-        </div>
-        <div class="data-card" data-index="2">
-            <h3>Robotic AI</h3>
-            <li>- Python, OpenCV</li>
-            <li>- C, C++ Development</li>
-            <li>- ROS 2 Framework</li>
-        </div>
-        <div class="data-card" data-index="3">
-            <h3>Hardware Logic</h3>
-            <li>- Arduino & ESP32</li>
-            <li>- Aries & Jetson Nano</li>
-            <li>- Motor Control Systems</li>
-        </div>
-        <div class="data-card" data-index="4">
-            <h3>PCB Design</h3>
-            <li>- EasyEDA Circuits</li>
-            <li>- Hardware Automation</li>
-        </div>
-    </section>
-    <div class="section-header">
-        <h2>Manual Override // Intro</h2>
-        <div class="line"></div>
+</section>
+
+<div class="section-header">
+    <h2>Systems Intelligence</h2>
+    <div class="line"></div>
+</div>
+
+<section class="telemetry-grid">
+    <div class="data-card" data-index="1">
+        <h3>Mechanical / CAD</h3>
+        <li>- SolidWorks</li>
+        <li>- Fusion 360 </li>
+        <li>- Ansys</li>
+        <li>- Altair Hyperworks</li>
     </div>
-    <section class="about-section">
-        <div class="profile-frame">
-            <img src="assets/icons/logo.png" alt="About">
-        </div>
-        <div class="about-info">
-            <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">// BIO_DATA.READ()</p>
-            <p style="margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e0;">
-                A motivated Robotics and Automation Engineering student with hands-on experience in CAD design,
-                PCB prototyping, and AI-driven system development. Proven ability to lead projects from concept to
-                execution, integrating software and hardware to create innovative solutions. Seeking to leverage skills
-                in robotics, machine learning, Mechanical system design and automation to contribute to a challenging
-                engineering role.
-            </p>
-        </div>
-    </section>
-    <div class="section-header">
-        <h2>Experiences</h2>
-        <div class="line"></div>
+    <div class="data-card" data-index="2">
+        <h3>Robotic AI</h3>
+        <li>- Python, OpenCV</li>
+        <li>- C, C++ Development</li>
+        <li>- ROS 2 Framework</li>
     </div>
-    <section class="telemetry-grid">
-        <div class="data-card" data-index="1">
-            <h3>Autonomous Baja - Mechanical team member</h3>
-            <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">October 2025 - present</p>
-        </div>
-        <div class="data-card" data-index="2">
-            <h3>IoT Intern | CCU-Saintgits</h3>
-            <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">August 2025 - present</p>
-        </div>
-        <div class="data-card" data-index="3">
-            <h3>CAD Designer Intern | Karthikesh Robotics</h3>
-            <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">June 2025 - August 2025</p>
-        </div>
-        <div class="data-card" data-index="4">
-            <h3>CAD Designer Intern | Equinox Baja team</h3>
-            <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">May 2025 - June 2025</p>
-        </div>
-    </section>
-    <footer>
-        <p>© 2025 THARZ_37 | ALL RIGHTS RESERVED </p>
-    </footer>
-    <script>
-        const barObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.getAttribute('data-width');
-                }
-            });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('.stat-fill').forEach(fill => barObserver.observe(fill));
-    </script>
+    <div class="data-card" data-index="3">
+        <h3>Hardware Logic</h3>
+        <li>- Arduino & ESP32</li>
+        <li>- Aries & Jetson Nano</li>
+        <li>- Motor Control Systems</li>
+    </div>
+    <div class="data-card" data-index="4">
+        <h3>PCB Design</h3>
+        <li>- EasyEDA Circuits</li>
+        <li>- Hardware Automation</li>
+    </div>
+</section>
+
+<div class="section-header">
+    <h2>Manual Override // Intro</h2>
+    <div class="line"></div>
+</div>
+
+<section class="about-section">
+    <div class="profile-frame">
+        <img src="assets/icons/logo.png" alt="About">
+    </div>
+    <div class="about-info">
+        <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">// BIO_DATA.READ()</p>
+        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e0;">
+            A motivated Robotics and Automation Engineering student with hands-on experience in CAD design,
+            PCB prototyping, and AI-driven system development. Proven ability to lead projects from concept to
+            execution, integrating software and hardware to create innovative solutions. Seeking to leverage skills
+            in robotics, machine learning, Mechanical system design and automation to contribute to a challenging
+            engineering role.
+        </p>
+    </div>
+</section>
+
+<div class="section-header">
+    <h2>Experiences</h2>
+    <div class="line"></div>
+</div>
+
+<section class="telemetry-grid">
+    <div class="data-card" data-index="1">
+        <h3>Autonomous Baja - Mechanical team member</h3>
+    <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">October 2025 - present</p>
+    </div>
+    <div class="data-card" data-index="2">
+        <h3>IoT Intern | CCU-Saintgits</h3>
+    <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">August 2025 - present</p>
+    </div>
+    <div class="data-card" data-index="3">
+        <h3>CAD Designer Intern | Karthikesh Robotics</h3>
+    <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">June 2025 - August 2025</p>
+    </div>
+    <div class="data-card" data-index="4">
+        <h3>CAD Designer Intern | Equinox Baja team</h3>
+    <p style="color: var(--rb-gold); margin-bottom: 20px; font-weight: 700;">May 2025 - June 2025</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 THARZ_37 | ALL RIGHTS RESERVED </p>
+</footer>
+
+<script>
+    // Animate stat bars on scroll
+    const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = entry.target.getAttribute('data-width');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-fill').forEach(fill => barObserver.observe(fill));
+</script>
+
 </body>
 </html>
