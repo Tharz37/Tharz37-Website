@@ -71,7 +71,7 @@
         .btn-view:hover { background: var(--rb-gold); color: #000; }
 
         /* GALLERY GRID */
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; margin-bottom: 50px; }
         .gallery-grid img { width: 100%; border: 1px solid var(--border); opacity: 0.8; transition: 0.3s; }
         .gallery-grid img:hover { opacity: 1; border-color: var(--rb-red); }
 
@@ -100,12 +100,12 @@
 </nav>
 <section class="project-hero">
     <div class="hero-left">
-        <span class="log-id">LOG_01 // SURFACE MODELLING</span>
-        <h1>FORMULA CAR FRONT WING <br><span>2022 & 90s</span> INSPIRED MODEL</h1>
+        <span class="log-id">LOG_01 // SYSTEM EVOLUTION</span>
+        <h1>FORMULA CAR AERODYNAMICS <br><span>90s, 2022, 2026</span> PIPELINE</h1>
     </div>
     <div class="hero-right">
         <div class="chassis-frame">
-            <img src="images/Formula one car.png" alt="front wing">
+            <img src="images/hero.png" alt="front wing">
         </div>
     </div>
 </section>
@@ -120,32 +120,60 @@
     <aside class="side-specs">
         <h4>SYSTEM SPECS</h4>
         <ul>
-            <li>Software: Fusion 360, Ansys Fluent</li>
-            <li>Technique: Surface Lofting, Boundary Fill</li>
-            <li>Analysis: CFD & Curvature Comb</li>
+            <li>Software: Fusion 360, Ansys Fluent, SolidWorks, OpenFOAM, ParaView</li>
+            <li>Technique: Surface Lofting, Boundary Fill, Guided Curves, Linux Bash Scripting</li>
+            <li>Analysis: CFD, Curvature Comb, Multi-million Cell Mesh</li>
         </ul>
     </aside>
 
     <main class="main-text">
-        <h2>90s Era Model Car (Inspired) </h2>
+        <h2>The Catalyst: Build Your Own Wind Tunnel</h2>
         <p>
-    A geometric baseline study inspired by late-90s F1 architecture. The primary objective of this phase was to establish a valid mechanical packaging layout (wheelbase, track width, and driver positioning) before advancing to complex aerodynamic surfacing. This model served as the control geometry for initial CFD setup in Ansys Fluent, allowing for rapid meshing and boundary condition validation without the computational overhead of high-curvature surfaces. It demonstrates my understanding of fundamental vehicle constraints and systematic model preparation.
-</p>
+            Applying to top-tier motorsport and aerospace programs made one reality extremely clear: everyone knows how to draw shapes in CAD, but very few understand true vehicle dynamics and validation. When you are fighting for a spot in a high-performance industry, you cannot wait for an opportunity to be handed to you. You have to build it yourself. 
+        </p>
+        <p>
+            I set out to engineer my own digital testing pipeline. This project is not just a showcase of 3D modeling; it is a three-part evolution tracking how aerodynamic philosophy has shifted over the decades, and how I evolved from a CAD operator into a Systems Engineer.
+        </p>
+
+        <h2 style="margin-top: 60px;">The 90s: Mechanical Grip & The Raw Baseline</h2>
+        <p>
+            Before you can manipulate air, you have to understand the chassis. The late-90s F1 era was less about micro-aerodynamics and more about raw mechanical grip and straightforward packaging. I used this era as my control geometry. It taught me how to establish the critical mechanical limits wheelbase, track width, and driver positioning. 
+        </p>
+        <p>
+            The logic here was simple: build a solid, low-computational baseline. By keeping the surfaces relatively simple, I could validate my initial boundary conditions and simulation physics in Ansys Fluent without the overhead of massive cell counts. 
+        </p>
         <div class="gallery-grid">
             <img src="images/90s car orthograph.png" alt="Orthographic view">
-	    <img src="images/90s car front.png" alt="front view">
+            <img src="images/90s car front.png" alt="front view">
         </div>
 
-        <h2 style="margin-top: 40px;">2022 inspire front wing</h2>
+        <h2 style="margin-top: 60px;">2022: The Ground Effect & Dirty Air</h2>
         <p>
-    An advanced surface modelling study exploring the 2022 "Ground Effect" aerodynamic regulations. This project prioritized high-quality surface continuity (G2/Curvature) to minimize flow separation and drag. Key features include a multi-element front wing designed to manage front-wheel wake (outwash generation) and a tight-wrapped engine cover created using complex lofting and boundary surface techniques in Fusion 360. The design intent was to balance downforce generation with clean airflow delivery to the rear diffuser, validated through surface curvature analysis.
-</p>
-<div class="chassis-frame" style="height:300px; margin-top: 30px;">
+            In 2022, regulations shifted dramatically to focus on managing "dirty air" and utilizing the ground effect. The engineering logic changed completely—it was no longer just about generating localized downforce; it was about cleanly routing the turbulent wake away from the rear tires to allow closer racing.
+        </p>
+        <p>
+            I used advanced Fusion 360 techniques—specifically G2 curvature continuity, complex lofting, and boundary fills—to create a multi-element front wing and tightly wrapped engine cover. The goal was to prove I could master high-quality surface continuity to minimize flow separation before the air even reached the rear diffuser.
+        </p>
+        <div class="chassis-frame" style="height:300px; margin-top: 30px;">
             <img src="images/Formula one car.png" alt="Ground effect era inspired">
         </div>
 
+        <h2 style="margin-top: 60px; color: var(--rb-gold);">2026: Systems Engineering & OpenFOAM</h2>
+        <p>
+            A beautiful model is useless if you cannot definitively prove that it works. The upcoming 2026 regulations represent the absolute pinnacle of aerodynamic efficiency and active aero concepts. To test my 2026-compliant front wing, I had to stop relying on standard commercial GUI software.
+        </p>
+        <p>
+            I engineered the new front wing assembly in SolidWorks, exported the geometry, and built a custom Computational Fluid Dynamics (CFD) wind tunnel entirely in a Linux environment. Using OpenFOAM, I wrote custom Bash scripts to automate the generation of multi-million-cell meshes and monitor solver convergence. I then extracted the telemetry into ParaView to analyze pressure distribution and turbulent wake structures. This is where the project stopped being just about hardware design, and became about engineering a complete, automated validation system.
+        </p>
+
+        <div class="gallery-grid" style="margin-top: 20px; margin-bottom: 30px;">
+            <img src="images/f1_2026_cad.png" alt="2026 Front Wing CAD">
+            <img src="images/f1_2026_cfd_paraview1.png" alt="OpenFOAM ParaView Telemetry">
+            <img src="images/f1_2026_cfd_paraview2.png" alt="OpenFOAM ParaView Telemetry">
+        </div>
         
-        <a href="https://www.linkedin.com/posts/tharunoommenjacob0737_formula1-cfd-aerodynamics-activity-7397875535348973568-n4HQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbygokBWkCr6XDZDrfXC84DvQO949pwDKw" class="btn-view" style="border-color: #fff; color: #fff;">VIEW LINKEDIN POST</a>
+        <a href="https://www.linkedin.com/posts/tharunoommenjacob0737_formula1-cfd-aerodynamics-activity-7397875535348973568-n4HQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbygokBWkCr6XDZDrfXC84DvQO949pwDKw" class="btn-view" style="border-color: #fff; color: #fff;">90s and 2022 linkedIn post</a>
+        <a href="https://www.linkedin.com/posts/tharunoommenjacob0737_aerodynamics-cfd-openfoam-ugcPost-7471415986886389761-zvra/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbygokBWkCr6XDZDrfXC84DvQO949pwDKw" class="btn-view" style="border-color: #fff; color: #fff;">2026 linkedIn post</a>
     </main>
 </section>
 
