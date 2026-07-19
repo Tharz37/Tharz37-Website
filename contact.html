@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <title>CONTACT | THARZ_37</title>
+
+    <meta name="description" content="Get in touch with Tharun Oommen Jacob for CAD simulation, AI integration and engineering project work.">
+    <meta name="author" content="Tharun Oommen Jacob">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="THARZ_37 Portfolio">
+    <meta property="og:title" content="Contact | THARZ_37">
+    <meta property="og:description" content="Send a project brief to Tharun Oommen Jacob.">
+    <meta property="og:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/Tharun_Main.png">
+    <meta property="og:url" content="https://tharz37.github.io/Tharz37-Website/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | THARZ_37">
+    <meta name="twitter:description" content="Send a project brief to Tharun Oommen Jacob.">
+    <meta name="twitter:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/Tharun_Main.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/shared.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact THARZ_37",
+      "url": "https://tharz37.github.io/Tharz37-Website/contact.html",
+      "author": { "@type": "Person", "name": "Tharun Oommen Jacob" }
+    }
+    </script>
+
     <style>
-        :root {
-            --rb-navy: #000c17;
-            --rb-red: #e10600;
-            --rb-gold: #f5b002;
-            --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(255, 255, 255, 0.03);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--rb-navy);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px; z-index: -1;
-        }
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 6%; background: rgba(0, 12, 23, 0.95);
-            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .logo img { height: 30px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; letter-spacing: 1px; }
         .contact-container {
             min-height: 100vh;
             display: flex;
@@ -88,14 +90,20 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <nav>
         <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
-        <div class="nav-links">
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav">
             <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
             <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
         </div>
     </nav>
-    <section class="contact-container">
+
+    <section class="contact-container" id="main" tabindex="-1">
         <div class="contact-box">
             <h2>Est. <span>Uplink</span></h2>
             <span class="subtitle">Secure transmission line. Send project briefs below.</span>
@@ -106,20 +114,22 @@
                 <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I'll get back to you soon.">
                 <input type="hidden" name="_next" value="https://tharz37.github.io/Tharz37-Website/thanks.html">
                 <div class="form-group">
-                    <label>Operator Name</label>
-                    <input type="text" name="name" required placeholder="ENTER_ID">
+                    <label for="name">Operator Name</label>
+                    <input type="text" id="name" name="name" required placeholder="ENTER_ID">
                 </div>
                 <div class="form-group">
-                    <label>Comms Frequency (Email)</label>
-                    <input type="email" name="email" required placeholder="ENTER_EMAIL">
+                    <label for="email">Comms Frequency (Email)</label>
+                    <input type="email" id="email" name="email" required placeholder="ENTER_EMAIL">
                 </div>
                 <div class="form-group">
-                    <label>Transmission Data</label>
-                    <textarea name="message" rows="5" required placeholder="TYPE_MESSAGE..."></textarea>
+                    <label for="message">Transmission Data</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="TYPE_MESSAGE..."></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Initialize Send</button>
             </form>
         </div>
     </section>
+
+    <script src="assets/scripts/nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,151 @@
+/* ============================================================
+   THARZ_37 — SHARED STYLESHEET
+   Central design system: variables, reset, blueprint grid,
+   navigation, footer, and accessibility utilities.
+
+   Page-specific styles remain inside each HTML file's <style>.
+   Values standardized across pages (minor, imperceptible shifts)
+   to remove duplication and guarantee a consistent identity.
+   ============================================================ */
+
+:root {
+    --rb-navy: #000c17;
+    --rb-red: #e10600;
+    --rb-gold: #f5b002;
+    --border: rgba(255, 255, 255, 0.08);
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--rb-navy);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Blueprint grid overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+/* ---------- Accessibility: skip link ---------- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    background: var(--rb-gold);
+    color: #000;
+    padding: 10px 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* ---------- Accessibility: visible keyboard focus ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--rb-gold);
+    outline-offset: 2px;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%;
+    background: rgba(0, 12, 23, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.logo img,
+.logo-container img { height: 30px; }
+.logo-container img { height: 35px; } /* preserve homepage logo size */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 0;
+}
+
+/* Hamburger toggle — hidden on desktop, shown on mobile */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: #fff;
+    width: 42px;
+    height: 38px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.nav-toggle:hover { border-color: var(--rb-gold); color: var(--rb-gold); }
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    padding: 40px 8%;
+    border-top: 1px solid var(--border);
+    background: #00080f;
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+/* ---------- Mobile navigation ---------- */
+@media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(0, 12, 23, 0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 8px 6%;
+        display: none;
+    }
+    .nav-links.nav-open { display: flex; }
+    .nav-links a {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.8rem;
+    }
+    .logo img,
+    .logo-container img { height: 24px; }
+    .logo-container img { height: 28px; }
+}

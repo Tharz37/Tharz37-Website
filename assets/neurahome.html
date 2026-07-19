@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
     <title>LOG_03: NEURAHOME | THARZ_37</title>
-    
+
+    <meta name="description" content="NeuraHome: intent-based voice and computer-vision home automation on ESP32 with generative AI control.">
+    <meta name="author" content="Tharun Oommen Jacob">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="THARZ_37 Portfolio">
+    <meta property="og:title" content="NeuraHome | THARZ_37">
+    <meta property="og:description" content="Intent-based voice and computer-vision home automation on ESP32 with generative AI control.">
+    <meta property="og:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/neurahome.png">
+    <meta property="og:url" content="https://tharz37.github.io/Tharz37-Website/assets/neurahome.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NeuraHome | THARZ_37">
+    <meta name="twitter:description" content="Intent-based voice and computer-vision home automation on ESP32 with generative AI control.">
+    <meta name="twitter:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/neurahome.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/shared.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "NeuraHome",
+      "url": "https://tharz37.github.io/Tharz37-Website/assets/neurahome.html",
+      "creator": { "@type": "Person", "name": "Tharun Oommen Jacob" },
+      "about": "Home automation, computer vision, generative AI, ESP32"
+    }
+    </script>
 
     <style>
-        :root {
-            --rb-navy: #000c17; --rb-red: #e10600; --rb-gold: #f5b002;
-            --border: rgba(255, 255, 255, 0.08); --glass: rgba(255, 255, 255, 0.03);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--rb-navy); color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
-
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px; z-index: -1;
-        }
-
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 6%; background: rgba(0, 12, 23, 0.95); backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border); position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .logo img { height: 30px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; }
-
         .project-hero {
             height: 80vh; display: grid; grid-template-columns: 1.3fr 0.7fr;
             align-items: center; padding: 0 8%; padding-top: 80px; gap: 40px;
@@ -42,7 +48,7 @@
 
         .chassis-frame { position: relative; width: 100%; height: 350px; border: 1px solid var(--border); background: var(--glass); }
         .chassis-frame img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 90%; width: auto; filter: drop-shadow(0 20px 30px #000); }
-        
+
         .telemetry-strip {
             display: flex; background: rgba(225, 6, 0, 0.1); border-top: 1px solid var(--rb-red);
             border-bottom: 1px solid var(--rb-red); padding: 20px 8%; justify-content: space-between;
@@ -52,10 +58,10 @@
         .stat-item span { font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; text-transform: uppercase; }
 
         .content-section { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 60px; }
-        
+
         .side-specs { background: var(--glass); border: 1px solid var(--border); padding: 30px; height: fit-content; position: sticky; top: 120px; }
         .side-specs h4 { font-family: 'Archivo Black', sans-serif; color: var(--rb-gold); margin-bottom: 20px; font-size: 0.9rem; }
-        
+
         pre { background: #000; border: 1px solid var(--border); padding: 15px; font-family: monospace; font-size: 0.7rem; color: #a0aec0; overflow-x: auto; border-left: 2px solid var(--rb-red); }
 
         .main-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 2rem; margin-bottom: 25px; color: var(--rb-red); text-transform: uppercase; }
@@ -66,8 +72,6 @@
             text-decoration: none; font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin-top: 20px; transition: 0.3s;
         }
         .btn-view:hover { background: var(--rb-gold); color: #000; }
-
-        footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); font-size: 0.7rem; color: #444; letter-spacing: 2px; }
 
         @media (max-width: 900px) {
             .project-hero { grid-template-columns: 1fr; height: auto; padding-top: 120px; text-align: center; }
@@ -80,21 +84,27 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <nav>
     <div class="logo"><img src="icons/logo.png" alt="THARZ"></div>
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links" id="primary-nav">
         <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
         <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
     </div>
 </nav>
-<section class="project-hero">
+
+<section class="project-hero" id="main" tabindex="-1">
     <div class="hero-left">
         <span class="log-id">LOG_03 // AI_SMART_SYSTEMS</span>
         <h1>NEURAHOME<br><span>VOICE & CV</span> LOGIC</h1>
     </div>
     <div class="hero-right">
         <div class="chassis-frame">
-            <img src="images/neurahome.png" alt="NeuraHome Hub">
+            <img src="images/neurahome.png" alt="NeuraHome hub device">
         </div>
     </div>
 </section>
@@ -129,12 +139,12 @@
         <p>Most smart homes require rigid commands like "Hey Google". NeuraHome uses <strong>Generative AI (Gemini)</strong> to understand natural intent. Phrases like "It's too dark in here" or "Illuminate the room" both trigger the same LED_ON command via semantic understanding.</p>
 
         <div class="chassis-frame" style="height: 500px; margin-bottom: 30px;">
-             <img src="images/neurahome-cv-demo.jpg" alt="CV Demo" style="height: 100%; width: 100%; object-fit: cover;">
+             <img src="images/neurahome-cv-demo.jpg" alt="NeuraHome computer vision demo" loading="lazy" style="height: 100%; width: 100%; object-fit: cover;">
         </div>
 
         <h2>Multi-Modal Control</h2>
         <p>The system is a hybrid. A Python script runs MediaPipe for <strong>Hand Gesture Recognition</strong> while simultaneously listening for voice input. All commands are routed via WebSockets to the ESP32, which handles the physical switching of fans and lights.</p>
-        
+
         <p><strong>Team:</strong> Shahazad Abdulla, Sidharth Sajith</p>
     </main>
 </section>
@@ -143,5 +153,6 @@
     © 2026 THARZ_37 | ALL RIGHTS RESERVED
 </footer>
 
+<script src="scripts/nav.js"></script>
 </body>
 </html>

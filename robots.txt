@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tharz37.github.io/Tharz37-Website/sitemap.xml

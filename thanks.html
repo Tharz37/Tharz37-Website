@@ -5,26 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <title>TRANSMISSION SENT | THARZ_37</title>
+
+    <meta name="description" content="Your message was received. Tharun Oommen Jacob will respond shortly.">
+    <meta name="robots" content="noindex">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="THARZ_37 Portfolio">
+    <meta property="og:title" content="Transmission Sent | THARZ_37">
+    <meta property="og:description" content="Your message was received.">
+    <meta property="og:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/Tharun_Main.png">
+    <meta property="og:url" content="https://tharz37.github.io/Tharz37-Website/thanks.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/shared.css">
+
     <style>
-        :root {
-            --rb-navy: #000c17;
-            --rb-red: #e10600;
-            --rb-gold: #f5b002;
-            --border: rgba(255, 255, 255, 0.08);
-        }
         body {
-            background-color: var(--rb-navy);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px;
+            padding: 100px 20px 40px;
         }
         h1 { font-family: 'Archivo Black', sans-serif; font-size: 3rem; margin-bottom: 20px; color: var(--rb-gold); text-transform: uppercase; }
         p { color: #a0aec0; margin-bottom: 40px; letter-spacing: 1px; }
@@ -36,8 +42,25 @@
     </style>
 </head>
 <body>
-    <h1>Transmission Received</h1>
-    <p>DATA_PACKET_SECURE. I WILL RESPOND ASAP.</p>
-    <a href="https://tharz37.github.io/Tharz37-Website/" class="btn">Return to Base</a>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <nav>
+        <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav">
+            <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
+            <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
+        </div>
+    </nav>
+
+    <main id="main" tabindex="-1">
+        <h1>Transmission Received</h1>
+        <p>DATA_PACKET_SECURE. I WILL RESPOND ASAP.</p>
+        <a href="https://tharz37.github.io/Tharz37-Website/" class="btn">Return to Base</a>
+    </main>
+
+    <script src="assets/scripts/nav.js"></script>
 </body>
 </html>

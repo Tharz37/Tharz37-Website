@@ -5,38 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <title>PROJECT ARCHIVE | THARZ_37</title>
+
+    <meta name="description" content="Project archive of Tharun Oommen Jacob — CAD/CFD, embedded systems, control theory and AI smart systems.">
+    <meta name="author" content="Tharun Oommen Jacob">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="THARZ_37 Portfolio">
+    <meta property="og:title" content="Project Archive | THARZ_37">
+    <meta property="og:description" content="Mission logs: F1 aerodynamics, autonomous braking, NeuraHome, balancing robot and more.">
+    <meta property="og:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/hero.png">
+    <meta property="og:url" content="https://tharz37.github.io/Tharz37-Website/Projects.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Project Archive | THARZ_37">
+    <meta name="twitter:description" content="Mission logs: F1 aerodynamics, autonomous braking, NeuraHome, balancing robot and more.">
+    <meta name="twitter:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/hero.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/shared.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "THARZ_37 Project Archive",
+      "url": "https://tharz37.github.io/Tharz37-Website/Projects.html",
+      "author": { "@type": "Person", "name": "Tharun Oommen Jacob" }
+    }
+    </script>
+
     <style>
-        :root {
-            --rb-navy: #000c17;
-            --rb-red: #e10600; 
-            --rb-gold: #f5b002;
-            --border: rgba(255, 255, 255, 0.08); 
-            --glass: rgba(255, 255, 255, 0.03);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--rb-navy); 
-            color: #ffffff; 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.5;
-        }
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px), 
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px; z-index: -1;
-        }
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 6%; background: rgba(0, 12, 23, 0.95);
-            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .logo img { height: 30px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; letter-spacing: 1px; }
         .header-section {
             padding: 140px 8% 40px;
             border-bottom: 1px solid var(--border);
@@ -56,7 +56,7 @@
             transition: 0.4s ease;
         }
         .project-card:hover { border-color: var(--rb-red); transform: translateX(10px); }
-        .project-image { 
+        .project-image {
             position: relative;
             overflow: hidden;
             background: #000;
@@ -77,15 +77,15 @@
             font-size: 0.8rem; font-weight: 900; text-transform: uppercase; transition: 0.3s;
         }
         .btn-view:hover { background: var(--rb-gold); color: #000; }
-        .collaborate { 
-            margin: 60px 8%; padding: 60px; text-align: center; 
-            border: 1px solid var(--rb-red); background: linear-gradient(45deg, #00101d, #110000); 
+        .collaborate {
+            margin: 60px 8%; padding: 60px; text-align: center;
+            border: 1px solid var(--rb-red); background: linear-gradient(45deg, #00101d, #110000);
         }
         .collaborate h2 { font-family: 'Archivo Black', sans-serif; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px; }
         @media (max-width: 900px) {
             .header-section { padding: 120px 6% 30px; }
             .project-card { grid-template-columns: 1fr; transform: none !important;}
-            .project-card:hover { transform: translateY(-5px) !important; } 
+            .project-card:hover { transform: translateY(-5px) !important; }
             .project-image { height: 250px; min-height: auto; border-right: none; border-bottom: 1px solid var(--border); }
             .project-content { padding: 30px 20px; }
             .project-content h3 { font-size: 1.5rem; }
@@ -95,35 +95,42 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <nav>
         <div class="logo"><img src="assets/icons/logo.png" alt="THARZ"></div>
-        <div class="nav-links">
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav">
             <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
             <a href="https://tharz37.github.io/Tharz37-Website/contact.html">Contact</a>
         </div>
     </nav>
-    <section class="header-section">
+
+    <section class="header-section" id="main" tabindex="-1">
         <span class="subtitle">// MISSION LOGS</span>
         <h1>PROJECT <span>ARCHIVE</span></h1>
     </section>
+
     <div class="project-container">
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/hero.png" alt="Hero image">
+                <img src="assets/images/hero.png" alt="F1 front wing aerodynamics render" loading="lazy">
             </div>
-	    <div class="project-content">
+            <div class="project-content">
                 <span class="id">TASK_SESSION: 01 // Surface modelling</span>
                 <h3>F1 Inspired front Wing</h3>
                 <p>An attempt to create an F1 inspired front wing of 90s and ground effect era and 2026 regulation car</p>
                 <div class="tech-stack">
                     <span>Fusion 360</span><span>Solidworks</span><span>Surface Modelling</span><span>OpenFoam & ParaView</span>
                 </div>
-                <a href="assets/F1.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/F1.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/pedal.png" alt="Autonomous Braking">
+                <img src="assets/images/pedal.png" alt="Autonomous braking mechanism render" loading="lazy">
             </div>
             <div class="project-content">
                 <span class="id">TASK_SESSION: 02 // MECHANICAL</span>
@@ -132,12 +139,12 @@
                 <div class="tech-stack">
                     <span>Fusion 360</span><span>Structural Mechanics</span>
                 </div>
-                <a href="assets/Autonomous braking mechanism.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/Autonomous braking mechanism.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/neurahome.png" alt="NeuraHome">
+                <img src="assets/images/neurahome.png" alt="NeuraHome smart home hub" loading="lazy">
             </div>
             <div class="project-content">
                 <span class="id">TASK_SESSION: 03 // AI & SMART SYSTEMS</span>
@@ -146,12 +153,12 @@
                 <div class="tech-stack">
                     <span>Python</span><span>ESP32</span><span>OpenCV</span><span>AI Intent Recognition</span>
                 </div>
-                <a href="assets/neurahome.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/neurahome.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/balancing bot pid.jpg" alt="Balancing Robot">
+                <img src="assets/images/balancing bot pid.jpg" alt="Self-balancing PID robot" loading="lazy">
             </div>
             <div class="project-content">
                 <span class="id">TASK_SESSION: 04 // CONTROL THEORY</span>
@@ -160,12 +167,12 @@
                 <div class="tech-stack">
                     <span>PID Logic</span><span>Aries V3</span><span>Embedded C++</span><span>Sensor Fusion</span>
                 </div>
-                <a href="assets/pid balancing robot.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/pid balancing robot.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/gesture-home-circuit.jpg" alt="Gesture Circuit">
+                <img src="assets/images/gesture-home-circuit.jpg" alt="Gesture control circuit" loading="lazy">
             </div>
             <div class="project-content">
                 <span class="id">TASK_SESSION: 05 // AUTOMATION</span>
@@ -174,12 +181,12 @@
                 <div class="tech-stack">
                     <span>Arduino Uno</span><span>OpenCV</span>
                 </div>
-                <a href="assets/ai home automation.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/ai home automation.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
         <div class="project-card">
             <div class="project-image">
-                <img src="assets/images/light follwer .jpg" alt="Light Follower">
+                <img src="assets/images/light follwer .jpg" alt="Light following robot" loading="lazy">
             </div>
             <div class="project-content">
                 <span class="id">TASK_SESSION: 06 // SENSOR LOGIC</span>
@@ -188,10 +195,10 @@
                 <div class="tech-stack">
                     <span>Analog Sensors</span><span>Motor Drivers</span><span>Arduino</span>
                 </div>
-                <a href="assets/lightfollower.html" class="btn-view">View Data Log →</a>
+                <a href="https://tharz37.github.io/Tharz37-Website/assets/lightfollower.html" class="btn-view">View Data Log →</a>
             </div>
         </div>
-	
+
     </div>
     <section class="collaborate">
         <span class="subtitle">READY TO LAUNCH?</span>
@@ -199,10 +206,13 @@
         <p style="color: #a0aec0; margin-bottom: 30px;">I'm available for CAD Simulation, AI integration, and core Engineering Project development.</p>
         <a href="https://tharz37.github.io/Tharz37-Website/contact.html" class="btn-view" style="background: var(--rb-gold); color: #000;">Inquire Technical Support</a>
     </section>
+
     <footer>
         <p style="text-align: center; padding: 40px; font-size: 0.7rem; color: #444; letter-spacing: 2px;">
             © 2026 THARZ_37 | ALL RIGHTS RESERVED
         </p>
     </footer>
+
+    <script src="assets/scripts/nav.js"></script>
 </body>
 </html>

@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
     <title>LOG_05: GESTURE INTERFACE | THARZ_37</title>
-    
+
+    <meta name="description" content="Gesture-controlled smart home: a computer-vision to hardware bridge using MediaPipe and an Arduino Uno.">
+    <meta name="author" content="Tharun Oommen Jacob">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="THARZ_37 Portfolio">
+    <meta property="og:title" content="Gesture Controlled Smart Home | THARZ_37">
+    <meta property="og:description" content="A computer-vision to hardware bridge using MediaPipe and an Arduino Uno.">
+    <meta property="og:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/gesture-home-circuit.jpg">
+    <meta property="og:url" content="https://tharz37.github.io/Tharz37-Website/assets/ai home automation.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gesture Controlled Smart Home | THARZ_37">
+    <meta name="twitter:description" content="A computer-vision to hardware bridge using MediaPipe and an Arduino Uno.">
+    <meta name="twitter:image" content="https://tharz37.github.io/Tharz37-Website/assets/images/gesture-home-circuit.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/shared.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Gesture Controlled Smart Home",
+      "url": "https://tharz37.github.io/Tharz37-Website/assets/ai home automation.html",
+      "creator": { "@type": "Person", "name": "Tharun Oommen Jacob" },
+      "about": "Computer vision, MediaPipe, Arduino, home automation"
+    }
+    </script>
 
     <style>
-        :root {
-            --rb-navy: #000c17; --rb-red: #e10600; --rb-gold: #f5b002;
-            --border: rgba(255, 255, 255, 0.08); --glass: rgba(255, 255, 255, 0.03);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--rb-navy); color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
-
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 40px 40px; z-index: -1;
-        }
-
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 6%; background: rgba(0, 12, 23, 0.95); backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border); position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .logo img { height: 26px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-left: 20px; }
-
         .project-hero {
             height: 80vh; display: grid; grid-template-columns: 1.3fr 0.7fr;
             align-items: center; padding: 0 8%; padding-top: 80px; gap: 40px;
@@ -43,7 +49,7 @@
 
         .chassis-frame { position: relative; width: 100%; height: 350px; border: 1px solid var(--border); background: var(--glass); }
         .chassis-frame img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 125%; width: auto; filter: drop-shadow(0 20px 30px #000); }
-        
+
         .telemetry-strip {
             display: flex; background: rgba(245, 176, 2, 0.05); border-top: 1px solid var(--rb-gold);
             border-bottom: 1px solid var(--rb-gold); padding: 18px 8%; justify-content: space-between;
@@ -53,10 +59,10 @@
         .stat-item span { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #fff; }
 
         .content-section { padding: 60px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 50px; }
-        
+
         .side-specs { background: var(--glass); border: 1px solid var(--border); padding: 25px; height: fit-content; position: sticky; top: 120px; }
         .side-specs h4 { font-family: 'Archivo Black', sans-serif; color: var(--rb-red); margin-bottom: 15px; font-size: 0.85rem; }
-        
+
         pre {
             background-color: #000; border: 1px solid var(--border); border-left: 3px solid var(--rb-red);
             padding: 15px; color: #a0aec0; font-family: 'Courier New', monospace; font-size: 0.75rem;
@@ -65,18 +71,16 @@
 
         .main-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; text-transform: uppercase; }
         .main-text p { color: #cbd5e0; font-size: 1.05rem; margin-bottom: 25px; line-height: 1.7; }
-        
+
         .feature-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
         .pill { font-size: 0.65rem; font-weight: 900; background: rgba(225, 6, 0, 0.1); color: var(--rb-red); padding: 4px 10px; border: 1px solid var(--rb-red); text-transform: uppercase; }
 
         .btn-github {
             display: inline-block; padding: 12px 25px; background: var(--rb-red); color: #fff;
-            text-decoration: none; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; 
+            text-decoration: none; font-size: 0.75rem; font-weight: 900; text-transform: uppercase;
             margin-top: 20px; transition: 0.3s;
         }
         .btn-github:hover { background: #fff; color: #000; }
-
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); font-size: 0.7rem; color: #444; letter-spacing: 2px; }
 
         @media (max-width: 900px) {
             .project-hero { grid-template-columns: 1fr; padding-top: 110px; height: auto; text-align: center; }
@@ -89,22 +93,27 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <nav>
     <div class="logo"><img src="icons/logo.png" alt="THARZ"></div>
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links" id="primary-nav">
         <a href="https://tharz37.github.io/Tharz37-Website/">Home</a>
         <a href="https://tharz37.github.io/Tharz37-Website/Projects.html">Projects_Log</a>
     </div>
 </nav>
 
-<section class="project-hero">
+<section class="project-hero" id="main" tabindex="-1">
     <div class="hero-left">
         <span class="log-id">LOG_05 // CV_AUTOMATION_SYSTEM</span>
         <h1>GESTURE<br><span>CONTROLLED</span><br>SMART_HOME</h1>
     </div>
     <div class="hero-right">
         <div class="chassis-frame">
-            <img src="images/gesture-home-circuit.jpg" alt="Gesture Automation Hub">
+            <img src="images/gesture-home-circuit.jpg" alt="Gesture automation hub circuit">
         </div>
     </div>
 </section>
@@ -125,7 +134,7 @@
             <span class="pill">Python 3.9</span>
             <span class="pill">Mediapipe</span>
         </div>
-        
+
         <pre>
 [PIN_OUT]
 - LED_OUT: PIN_03
@@ -137,7 +146,7 @@ Port: COM3
 Baud: 9600
 Protocol: 8N1
         </pre>
-        
+
         <a href="https://github.com/Tharz37/arduino-mini-ai-home" class="btn-github">
             <i class="fab fa-github"></i> ACCESS_SOURCE
         </a>
@@ -151,7 +160,7 @@ Protocol: 8N1
         <p>The system utilizes a Python-based processing hub running MediaPipe to calculate hand landmarks. These coordinate landmarks are then filtered through a gesture-recognition algorithm that translates visual data into specific binary or PWM commands sent over serial communication to an Arduino Uno hub.</p>
 
         <div class="chassis-frame" style="height:250px; margin-bottom: 40px;">
-            <img src="images/gesture-home-circuit.jpg" style="height:100%;" alt="Circuit Analysis">
+            <img src="images/gesture-home-circuit.jpg" style="height:100%;" alt="Gesture control circuit analysis" loading="lazy">
         </div>
 
         <h2>Functional Protocols</h2>
@@ -165,7 +174,7 @@ Protocol: 8N1
 
         <h2>Final Summary</h2>
         <p>Successful deployment of the "Mini AI Home" verified the stability of Serial-to-CV interfacing. This foundation led to the development of higher-level projects involving intent detection and voice-CV hybrid systems (NeuraHome).</p>
-        
+
     </main>
 </section>
 
@@ -173,5 +182,6 @@ Protocol: 8N1
     © 2026 THARZ_37 | ENCRYPTED LINK | ALL RIGHTS RESERVED
 </footer>
 
+<script src="scripts/nav.js"></script>
 </body>
 </html>
