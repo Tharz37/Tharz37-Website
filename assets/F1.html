@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
-    <title>LOG_01: FORMULA ONE CAR FRONT WING | THARZ_37</title>
+    <title>Formula 1 Engineering | F1 Evolution, Aerodynamics & CFD | Tharun Oommen Jacob</title>
 
-    <meta name="description" content="Building a self-hosted OpenFOAM CFD wind tunnel on Linux to validate 90s, 2022 and 2026-regulation F1 front wings.">
+    <meta name="description" content="Explore Formula 1's aerodynamic evolution and a self-directed 2026 F1 concept project covering CAD surface modelling, OpenFOAM CFD and aerodynamic development.">
     <meta name="author" content="Tharun Oommen Jacob">
 
     <meta property="og:type" content="article">
@@ -77,6 +77,31 @@
         .gallery-grid img { width: 100%; border: 1px solid var(--border); opacity: 0.8; transition: 0.3s; }
         .gallery-grid img:hover { opacity: 1; border-color: var(--rb-red); }
 
+        /* ---- F1 journal additions (page-scoped, reuses existing theme tokens) ---- */
+        .journal-divider { border-top: 1px solid var(--rb-red); margin: 70px 0 0; padding-top: 10px; }
+        .journal-kicker { color: var(--rb-gold); font-weight: 900; letter-spacing: 5px; font-size: 0.75rem; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .main-text h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.25rem; margin: 40px 0 15px; color: #fff; text-transform: uppercase; border-left: 4px solid var(--rb-red); padding-left: 14px; line-height: 1.2; }
+        .main-text h3.gold { color: var(--rb-gold); border-left-color: var(--rb-gold); }
+        .figure { margin: 30px 0 40px; max-width: 100%; }
+        .figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border); opacity: 0.9; }
+        .figure figcaption { font-size: 0.8rem; color: #a0aec0; margin-top: 10px; line-height: 1.6; border-left: 3px solid var(--rb-gold); padding-left: 12px; }
+        .result-callout { background: var(--glass); border: 1px solid var(--rb-red); padding: 30px; margin: 30px 0 40px; text-align: center; max-width: 100%; }
+        .result-callout .value { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--rb-gold); line-height: 1; display: block; }
+        .result-callout .label { font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #cbd5e0; margin-top: 12px; display: block; line-height: 1.6; }
+        .result-callout .scope { font-size: 0.8rem; color: #a0aec0; margin-top: 10px; display: block; line-height: 1.6; }
+        .code-chip { font-family: monospace; font-size: 0.9em; background: rgba(255,255,255,0.06); border: 1px solid var(--border); padding: 2px 8px; white-space: nowrap; }
+        .status-badge { display: inline-block; font-size: 0.65rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #000; background: var(--rb-gold); padding: 5px 12px; margin-bottom: 15px; }
+        .lesson-list, .plan-list { list-style: none; margin: 0 0 30px; }
+        .lesson-list li, .plan-list li { color: #cbd5e0; font-size: 1rem; line-height: 1.7; padding-left: 22px; position: relative; margin-bottom: 10px; overflow-wrap: break-word; }
+        .lesson-list li::before { content: ">"; position: absolute; left: 0; color: var(--rb-red); font-weight: 900; }
+        .plan-list li::before { content: "→"; position: absolute; left: 0; color: var(--rb-gold); font-weight: 900; }
+        .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 30px 0 40px; }
+        .timeline-card { background: var(--glass); border: 1px solid var(--border); padding: 20px; min-width: 0; }
+        .timeline-card:hover { border-color: var(--rb-red); }
+        .timeline-card .phase { color: var(--rb-red); font-family: monospace; font-weight: 900; font-size: 0.65rem; display: block; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-card h4 { font-family: 'Archivo Black', sans-serif; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 8px; line-height: 1.3; }
+        .timeline-card p { color: #a0aec0; font-size: 0.85rem; line-height: 1.6; margin: 0; }
+
         @media (max-width: 900px) {
             .project-hero { grid-template-columns: 1fr; height: auto; padding-top: 120px; text-align: center; }
             .chassis-frame { height: 250px; margin: 0 auto; max-width: 90%; }
@@ -84,6 +109,8 @@
             .telemetry-strip { overflow-x: auto; gap: 40px; justify-content: flex-start; }
             .content-section { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: 1fr; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .result-callout { padding: 24px 16px; }
             .side-specs { position: relative; top: 0; }
         }
     </style>
@@ -175,6 +202,131 @@
             <img src="images/f1_2026_cad.png" alt="2026 front wing CAD model" loading="lazy">
             <img src="images/f1_2026_cfd_paraview1.png" alt="OpenFOAM ParaView pressure telemetry" loading="lazy">
             <img src="images/f1_2026_cfd_paraview2.png" alt="OpenFOAM ParaView wake structure telemetry" loading="lazy">
+        </div>
+
+        <div class="journal-divider" role="separator"></div>
+        <h2 style="margin-top: 40px;">From Understanding F1 to Building One</h2>
+        <p>
+            Studying how Formula 1 cars evolved is one thing. Trying to design one is another.
+        </p>
+        <p>
+            What began in late 2025 as a personal hypercar concept eventually became a self-directed engineering project focused on the 2026 Formula 1 regulations, aerodynamic surface modelling and computational fluid dynamics.
+        </p>
+        <p>
+            This section documents that journey — including the parts that worked, the parts that failed, and what the simulations revealed. This is a self-directed engineering project, not an official F1 engineering programme.
+        </p>
+
+        <h3>It Started With Velocity-X</h3>
+        <p>
+            In late 2025 I started Velocity-X as a personal hypercar concept. The idea was a dual-mode active aerodynamic philosophy: a low-drag straight-line concept for top speed, and a high-downforce cornering concept for grip — connected by split-flow nose ducts that routed air differently depending on the driving mode.
+        </p>
+        <p>
+            Velocity-X was a styling and packaging study, not a regulation-compliant race car. But working through its proportions, inlets, outlets and wing concepts kept pulling me toward the same question the 90s-to-2022 evolution above raises: how do real regulations turn a concept into engineering constraints? That question is what pivoted the project toward a 2026 Formula 1 concept.
+        </p>
+
+        <h3>From Hypercar to Formula 1</h3>
+        <p>
+            The decision was to redesign the concept around the 2026 Formula 1 regulations. Instead of free-form hypercar bodywork, every surface now had to answer to wheelbase, track width, aerodynamic packaging, sidepod undercuts, the downwash ramp, rear diffuser behaviour and overall bodywork geometry.
+        </p>
+        <p>
+            That transition — concept → regulations → engineering constraints → CAD — is the backbone of this journal. The 2026 ruleset became the design brief: shrink the packaging, clean up the wake like the 2022 philosophy demands, and push further toward efficiency and active-aero thinking.
+        </p>
+        <figure class="figure">
+            <img src="images/f1_2026_cad.png" alt="2026 F1 concept CAD surface model showing front wing and bodywork" loading="lazy">
+            <figcaption>2026 F1 concept CAD model. The 2026 regulation packaging — wheelbase, track width, sidepod undercut and diffuser geometry — drove every surface decision.</figcaption>
+        </figure>
+
+        <h3>Learning to Sculpt the Car</h3>
+        <p>
+            I was relatively inexperienced with advanced surface modelling when this phase began, so the project became the learning environment. I moved the 2026 work into SolidWorks and learned by building: boundary surfaces, continuous-curvature transitions, guided aerodynamic blends and complex multi-element wing geometry for the front wing and bodywork.
+        </p>
+        <p>
+            The emphasis was on learning through implementation — getting curvature continuity clean enough that flow could stay attached, rather than claiming professional expertise. Each rebuild of a wing element or bodywork transition taught more than any tutorial on its own.
+        </p>
+
+        <h3>The Two-Week Detour</h3>
+        <p>
+            Mid-project, a dual-boot/OS failure temporarily locked me out of the CAD environment for approximately two weeks. No modelling, no exports — just recovery work. The project data was recovered, development resumed, and the model was carried forward to a watertight half-car symmetry model suitable for CFD. Engineering development isn't always linear, and this was the reminder.
+        </p>
+
+        <h3 class="gold">Building the Virtual Wind Tunnel</h3>
+        <p>
+            With geometry in hand, I built the validation side on Ubuntu with OpenFOAM 11: a virtual wind tunnel using blockMesh for the background domain, a half-car symmetry setup to keep cell counts manageable, and an automated CFD workflow of geometry preparation, meshing and solver setup driven by scripts. I am deliberately not listing solver settings or physical parameters here beyond what is documented — the point is the pipeline, not invented numbers.
+        </p>
+
+        <h3>Making the Mesh Understand the Geometry</h3>
+        <p>
+            Meshing was done with snappyHexMesh, producing a multi-million-cell mesh with refinement concentrated around the aerodynamic surfaces. The hard part was preserving sharp trailing edges and resolving the complex F1 wing geometry — thin elements, tight gaps and high-curvature bodywork — without the mesh swallowing the details the CAD work had just created.
+        </p>
+        <div class="gallery-grid">
+            <img src="images/f1_2026_cfd_paraview1.png" alt="ParaView pressure field from first OpenFOAM run on 2026 F1 concept" loading="lazy">
+            <img src="images/f1_2026_cfd_paraview2.png" alt="ParaView wake structure from first OpenFOAM run on 2026 F1 concept" loading="lazy">
+        </div>
+
+        <h3 class="gold">300 Iterations Later</h3>
+        <p>
+            The first complete simulation successfully ran through 300 iterations, producing the project's first usable aerodynamic dataset. That milestone mattered more than any single number: the geometry was watertight, the mesh held, the solver ran, and the pipeline produced telemetry I could actually interpret in ParaView.
+        </p>
+        <div class="result-callout" role="note" aria-label="First CFD result">
+            <span class="journal-kicker">First usable result</span>
+            <span class="value">−26.2 N</span>
+            <span class="label">Downforce from the upper aerodynamic surfaces · first 300-iteration run</span>
+            <span class="scope">Scope: upper surfaces only — not total vehicle downforce, and not validated against wind-tunnel data.</span>
+        </div>
+        <p>
+            To be precise about scope: the upper aerodynamic surfaces produced approximately −26.2 N of downforce in this initial simulation. That is not a claim about the whole car, and it is not validated against wind-tunnel data. It is simply the first dataset this pipeline ever produced.
+        </p>
+
+        <h3>The Car Was Generating Downforce — Yet Still Lifting</h3>
+        <p>
+            The headline number hid a setup problem. In the initial setup the floor reference was <span class="code-chip">zmin = 0</span>, which effectively sealed the floor against the ground in the CFD geometry/setup and restricted the intended underbody flow.
+        </p>
+        <p>
+            The consequence was incorrect underfloor behaviour: a high-pressure region underneath the car, even while the upper surfaces were producing downforce — leaving the overall vehicle still producing net lift. The wings were working; the floor wasn't allowed to.
+        </p>
+        <figure class="figure">
+            <img src="images/f1_2026_cfd_paraview2.png" alt="ParaView visualization showing underbody high-pressure region from sealed-floor setup" loading="lazy">
+            <figcaption>First-run telemetry that exposed the sealed-floor issue: upper surfaces generating downforce while a high-pressure region underneath pushed the net balance toward lift.</figcaption>
+        </figure>
+
+        <h3>A Simulation Finishing Doesn't Mean the Physics Is Right</h3>
+        <p>
+            A CFD simulation can converge and run successfully while the model or setup is physically inappropriate. This project drove that lesson home. What mattered after the 300 iterations was not just the number, but geometry preparation, boundary conditions, physical assumptions, mesh quality, result interpretation and engineering judgement.
+        </p>
+        <ul class="lesson-list">
+            <li>Check geometry preparation before trusting forces — a sealed floor changes everything.</li>
+            <li>Interrogate boundary conditions and physical assumptions, not just residuals.</li>
+            <li>Judge mesh quality around the surfaces that actually generate load.</li>
+            <li>Let the simulation expose setup issues instead of shopping for a better number.</li>
+        </ul>
+
+        <h3><span class="status-badge">Planned / In Progress</span><br>Iteration 2</h3>
+        <p>
+            Iteration 2 is planned and in progress — not yet completed. The workflow is to fix the underbody modelling first, then re-run and compare honestly against the first dataset.
+        </p>
+        <ol class="plan-list">
+            <li>Raise ride height</li>
+            <li>Introduce floor clearance</li>
+            <li>Allow underbody flow</li>
+            <li>Improve diffuser flow</li>
+            <li>Re-mesh</li>
+            <li>Run CFD</li>
+            <li>Compare results</li>
+            <li>Iterate geometry</li>
+        </ol>
+
+        <h3>Project Development Timeline</h3>
+        <div class="timeline-grid">
+            <div class="timeline-card"><span class="phase">Late 2025</span><h4>Velocity-X concept</h4><p>Dual-mode active-aero hypercar study; split-flow nose ducts.</p></div>
+            <div class="timeline-card"><span class="phase">2026</span><h4>F1 regulation study</h4><p>Pivot to 2026 rules: wheelbase, track width, packaging.</p></div>
+            <div class="timeline-card"><span class="phase">CAD</span><h4>Surface modelling</h4><p>SolidWorks boundary surfaces; wings and bodywork.</p></div>
+            <div class="timeline-card"><span class="phase">Setback</span><h4>OS / CAD recovery</h4><p>~Two-week dual-boot failure; data recovered; watertight half-car model.</p></div>
+            <div class="timeline-card"><span class="phase">CFD</span><h4>OpenFOAM pipeline</h4><p>Ubuntu + OpenFOAM 11; blockMesh wind tunnel; half-car symmetry.</p></div>
+            <div class="timeline-card"><span class="phase">Meshing</span><h4>snappyHexMesh</h4><p>Multi-million cells; refined wings; sharp trailing edges.</p></div>
+            <div class="timeline-card"><span class="phase">First simulation</span><h4>300 iterations</h4><p>First complete run; first usable aerodynamic dataset.</p></div>
+            <div class="timeline-card"><span class="phase">First result</span><h4>−26.2 N upper-surface downforce</h4><p>Upper surfaces only; not total vehicle load; unvalidated.</p></div>
+            <div class="timeline-card"><span class="phase">Validation</span><h4>Underbody issue identified</h4><p>zmin = 0 sealed floor; high-pressure underbody; net lift.</p></div>
+            <div class="timeline-card"><span class="phase">Next iteration</span><h4>Ride height + floor + diffuser</h4><p>Planned / in progress: clearance, re-mesh, re-run, compare.</p></div>
         </div>
 
         <a href="https://www.linkedin.com/posts/tharunoommenjacob0737_formula1-cfd-aerodynamics-activity-7397875535348973568-n4HQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbygokBWkCr6XDZDrfXC84DvQO949pwDKw" class="btn-view" style="border-color: #fff; color: #fff;">90s and 2022 linkedIn post</a>
